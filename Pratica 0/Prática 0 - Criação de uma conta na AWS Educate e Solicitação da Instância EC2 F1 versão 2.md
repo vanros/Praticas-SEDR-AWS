@@ -42,9 +42,13 @@ No terminal digite** aws configure** e insira as informações obtidas (O ID da 
 
 3. A próxima etapa é configurar os pré-requisitos para a execução de uma instância do EC2 que podem ser acessados usando o SSH. Para fazer todas as configurações recomendadas pela AWS é necessário seguir o tutorial descrito no link [https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/get-set-up-for-amazon-ec2.html](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/get-set-up-for-amazon-ec2.html) . Porém, para esta prática serão necessárias apenas as configurações para  criar um security group e uma key-pair. Essas configurações serão descritas nos ítens a seguir.
 
-4. Primeiro, crie um novo security group e adicione uma regra que permite o tráfego de entrada na porta 22 para o SSH. Guarde o ID do security group para uso posterior.
+4. Primeiro, crie um novo security group e em seguida, adicione uma regra que permite o tráfego de entrada na porta 22 para o SSH. Guarde o ID do security group para uso posterior.
 
-$ **aws ec2 create-security-group --group-name nomeDoSecurityGroup-sg --description "Descricao do security group"**{    "GroupId": "sg-b018ced5"}$**aws ec2 authorize-security-group-ingress --group-name nomeDoSecurityGroup-sg --protocol tcp --port 22 --cidr ****_0.0.0.0/0_**
+$ **aws ec2 create-security-group --group-name nomeDoSecurityGroup-sg --description "Descricao do security group"**
+
+{    "GroupId": "sg-b018ced5"}
+
+$**aws ec2 authorize-security-group-ingress --group-name nomeDoSecurityGroup-sg --protocol tcp --port 22 --cidr ****_0.0.0.0/0_**
 
 5. Em seguida, crie uma key pair. Isso permite que você se conecte à instância.
 
