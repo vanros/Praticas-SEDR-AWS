@@ -185,10 +185,10 @@ A saída desse comando é composta dois identificadores referentes a AFI criada:
 * Global FPGA Image Identifier ou AGFI ID: esta é uma identificação global que é usada para se referir a um AFI dentro de uma instância F1. Por exemplo, para carregar ou limpar um AFI de um slot FPGA, você usa o AGFI ID. Uma vez que as IDs AGFI são globais (por design), permite copiar uma combinação de AFI / AMI para várias regiões, e elas funcionarão sem requerer nenhuma configuração adicional. Um exemplo AGFI ID é agfi-0f0e045f919413242.
 
 O comando  de descrição-fpga-images permite verificar o estado da AFI durante o processo de geração. É preciso fornecer o FPGA Image Identifier retornado, substitua no comando abaixo:
-  
-  ```bash
+
+```bash
     $ aws ec2 describe-fpga-images --fpga-image-ids afi-016fd6ccf3c73bf28
-  ```
+ ```
 
 A AFI só pode ser carregada em uma instância F1 após a conclusão da sua geração e o estado AFI está configurado para disponível, como no seguinte exemplo:
 
