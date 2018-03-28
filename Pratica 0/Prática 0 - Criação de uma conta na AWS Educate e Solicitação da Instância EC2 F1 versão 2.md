@@ -24,11 +24,11 @@ Esta prática objetiva mostrar a criação de uma conta na AWS Educate para o us
 
 1. Para ter acesso a instância f1.2xlarge, que possui uma FPGA conectada, é necessário realizar uma solicitação. Para isso, acesse o link [https://console.aws.amazon.com/support/home](https://console.aws.amazon.com/support/home) e clique em **Create Case**.
 
-2. Em **Regarding **e** Limit Type **escolha as opções mostradas na imagem abaixo: 
+2. Em **Regarding** e **Limit Type** escolha as opções mostradas na imagem abaixo: 
 
 	![image alt text](image_0.png)
 
-3. Em **Use Case Description **será necessário escrever (em inglês) uma justificativa para que a solicitação seja atendida.
+3. Em **Use Case Description** será necessário escrever (em inglês) uma justificativa para que a solicitação seja atendida.
 
 **Parte 3 - Configurar a AWS CLI e o Amazon EC2**
 
@@ -44,26 +44,20 @@ No terminal digite ``` aws configure ``` e insira as informações obtidas (O ID
 
 4. Primeiro, crie um novo security group e em seguida, adicione uma regra que permite o tráfego de entrada na porta 22 para o SSH. Guarde o ID do security group para uso posterior.
 
-   ```bash
-   $ aws ec2 create-security-group --group-name nomeDoSecurityGroup-sg --description "Descricao do security group"
-   ```
+   ```$ aws ec2 create-security-group --group-name nomeDoSecurityGroup-sg --description "Descricao do security group"```
 
-   ```bash
-    $ aws ec2 authorize-security-group-ingress --group-name nomeDoSecurityGroup-sg --protocol tcp --port 22 --cidr  0.0.0.0/0
-   ```
+   ```$ aws ec2 authorize-security-group-ingress --group-name nomeDoSecurityGroup-sg --protocol tcp --port 22 --cidr  0.0.0.0/0```
 
 
 5. Em seguida, crie uma key pair. Isso permite que você se conecte à instância.
 Use o comando abaixo:
 
-``` $ aws ec2 create-key-pair --key-name nomeDaKeyPair-key --query 'KeyMaterial' --output text > nomeDaKeyPair-key.pem```
+```$ aws ec2 create-key-pair --key-name nomeDaKeyPair-key --query 'KeyMaterial' --output text > nomeDaKeyPair-key.pem```
 		
  Esse comando iniciará um download de um arquivo .pem, que deverá ser guardado em um diretório de fácil acesso. 
  
 6. No Linux, é necessário alterar o modo de arquivo, de forma que somente você tenha acesso ao arquivo de chave.
-```bash 
-$ chmod 400 devenv-key.pem
-```
+```$ chmod 400 devenv-key.pem```
 	
 
 **Referências**
