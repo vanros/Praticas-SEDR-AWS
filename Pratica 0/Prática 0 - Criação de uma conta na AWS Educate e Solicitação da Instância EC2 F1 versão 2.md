@@ -52,6 +52,10 @@ No terminal digite ``` aws configure ``` e insira as informações obtidas (O ID
 5. Em seguida, crie uma key pair. Isso permite que você se conecte à instância.
 Use o comando abaixo:
 
+```bash 
+
+```
+
 ```$ aws ec2 create-key-pair --key-name nomeDaKeyPair-key --query 'KeyMaterial' --output text > nomeDaKeyPair-key.pem```
 		
  Esse comando iniciará um download de um arquivo .pem, que deverá ser guardado em um diretório de fácil acesso. 
