@@ -50,7 +50,7 @@ No terminal digite** aws configure** e insira as informações obtidas (O ID da 
       "GroupId": "sg-b018ced5"
   }
 
-  $ **aws ec2 authorize-security-group-ingress --group-name nomeDoSecurityGroup-sg --protocol tcp --port 22 --cidr      ****_0.0.0.0/0_**
+   $ **aws ec2 authorize-security-group-ingress --group-name nomeDoSecurityGroup-sg --protocol tcp --port 22 --cidr  0.0.0.0/0**
 
 5. Em seguida, crie uma key pair. Isso permite que você se conecte à instância.
 
