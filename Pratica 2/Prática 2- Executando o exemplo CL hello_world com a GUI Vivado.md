@@ -114,7 +114,7 @@ $ export subsystem_vendor_id=0xFEDD
 
 4. Execute o vivado usando o comando ```vivado```. Uma vez que a GUI tiver sido carregada, clique no console TCL
 
-5. Digite o comando ```aws::make_rtl -examples cl_hello_world``` para criar o exemplo hello_world_hlx. O exemplo será gerado no diretório ```cl/examples/hello_world_hlx/example_projects```. O projeto do vivado será o arquivo ```hello_world.xpr``` contido na pasta examples_projects.
+5. Digite o comando ```aws::make_rtl -examples cl_hello_world``` para criar o exemplo ```hello_world_hlx```. O exemplo será gerado no diretório ```cl/examples/hello_world_hlx/example_projects```. O projeto do vivado será o arquivo ```hello_world.xpr``` contido na pasta examples_projects.
 
 6. Clique em ```Simulation->Run Simulation->Run Behavioral Simulation```
 
@@ -124,14 +124,15 @@ $ export subsystem_vendor_id=0xFEDD
 
 **Parte 4: Simulação DPI com test_hello_world.c**
 
-1. Em Project Manager, clique com o botão direito em Simulation e selecione Simulation Settings
+1. Em ```Project Manager```, clique com o botão direito em ``Simulation`` e selecione ``Simulation Settings``
 
 2. Selecione a caixa … em Verilog options e modifique o valor de TEST_NAME para ```test_null```, para desativar o sv stimulus
 
 ```TEST_NAME = test_null ```
 
 
-3. No TCL console, em Vivado Project,copie e cole o seguinte comando para setar o path para criação do .so com o script test_hello_world.c. Caso esteja usando simuladores de terceiros, modifique o comando para combinar o simulador e o path para dpi.tcl em vez de dpi_xsim.tcl
+3. No TCL console, em ``Vivado Project``, copie e cole o seguinte comando para setar o path para criação do .so com o script test_hello_world.c. Caso esteja usando simuladores de terceiros, modifique o comando para combinar o simulador e o path para ``dpi.tcl`` em vez de  ``dpi_xsim.tcl``
+
 ```bash
 set_property -name {xsim.compile.tcl.pre} -value $::aws::make_faas::_nsvars::script_dir/../../hlx_examples/build/RTL/cl_hello_world/verif/scripts/dpi_xsim.tcl -objects [get_filesets sim_1]
 ```
@@ -146,7 +147,7 @@ set_property -name {xsim.compile.tcl.pre} -value $::aws::make_faas::_nsvars::scr
 
 	
 
-As configurações podem ser diferentes dependendo do simulador. Certos simuladores de terceiros podem precisar que seja incluído um path explícito o diretório de design para projetos de exemplo RTL fornecidos como cl_hello_world e cl_dram_dma. Para isso, na opção Verilog, selecione a caixa ... e clique no botão + sob Verilog Include Files Search Paths e selecione o path para o diretório cl/ cl_example/design.
+As configurações podem ser diferentes dependendo do simulador. Certos simuladores de terceiros podem precisar que seja incluído um path explícito o diretório de design para projetos de exemplo RTL fornecidos como ``cl_hello_world`` e ``cl_dram_dma``. Para isso, na opção ``Verilog``, selecione a caixa ``...`` e clique no botão ``+`` sob ``Verilog Include Files Search Paths`` e selecione o path para o diretório ``cl/ cl_example/design``.
 
 **Parte 5: Implementando o arquivo Design/Tar**
 
