@@ -56,8 +56,10 @@ No terminal digite** aws configure** e insira as informações obtidas (O ID da 
 
 $ **aws ec2 create-key-pair --key-name nomeDaKeyPair-key --query 'KeyMaterial' --output text > nomeDaKeyPair-key.pem**
 
- 	Esse comando fará com que seja realizado o download de um arquivo .pem, que deverá ser guardado em um diretório de fácil acesso.
-
+ 	aws ec2 create-key-pair --key-name nomeDaKeyPair-key --query 'KeyMaterial' --output text > nomeDaKeyPair-key.pem
+		
+ Esse comando iniciará um download de um arquivo .pem, que deverá ser guardado em um diretório de fácil acesso. 
+ 
 6. No Linux, é necessário alterar o modo de arquivo, de forma que somente você tenha acesso ao arquivo de chave.
 
 	$ **chmod 400 devenv-key.pem**
