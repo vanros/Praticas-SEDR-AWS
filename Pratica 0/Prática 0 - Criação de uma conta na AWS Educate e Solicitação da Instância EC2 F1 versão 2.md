@@ -47,8 +47,8 @@ No terminal digite** aws configure** e insira as informações obtidas (O ID da 
    $ **aws ec2 create-security-group --group-name nomeDoSecurityGroup-sg --description "Descricao do security group"**
 
    {
-      "GroupId": "sg-b018ced5"
-  }
+   "GroupId": "sg-b018ced5"
+   }
 
    $ **aws ec2 authorize-security-group-ingress --group-name nomeDoSecurityGroup-sg --protocol tcp --port 22 --cidr  0.0.0.0/0**
 
