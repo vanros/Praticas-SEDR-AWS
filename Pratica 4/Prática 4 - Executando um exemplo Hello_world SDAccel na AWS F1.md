@@ -2,7 +2,7 @@ DETI/UFC - Cursos de Eng. de Computação e Eng. de Telecomunicações
 
 Elaborada por Jardel Silveira e Vanessa Rodrigues
 
-# ** Executando um exemplo Hello World SDAccel na AWS F1**
+# **Executando um exemplo Hello World SDAccel na AWS F1**
 
 **Descrição**
 
@@ -14,35 +14,54 @@ AWS FPGA binary, Amazon FPGA Image (AFI) necessários para a sintetização do p
 
 **Parte 1: Criação de uma instância EC2 F1 a partir do AWS console.**
 
-1. Inicie e conecte-se a uma instância EC2 f1.2xlarge, seguindo os procedimentos descritos nas partes 1 e 2 da [prática Criação de uma Amazon FPGA Image (AFI) do exemplo CL hello_world](https://docs.google.com/document/d/1VEQpTWpr_yJ7DyCrB39Ty3BV7BZVK340KL0lC4bFKfM/edit), alterando apenas o nome da região para  **us-west-2** no item 2 da parte 1.
+1. Inicie e conecte-se a uma instância EC2 f1.2xlarge, seguindo os procedimentos descritos nas partes 1 e 2 da [prática Criação de uma Amazon FPGA Image (AFI) do exemplo CL hello_world](https://github.com/vanros/Praticas-SEDR-AWS/blob/master/Pratica%201/_Pr%C3%A1tica%201-%20Cria%C3%A7%C3%A3o%20de%20uma%20Amazon%20FPGA%20Image%20(AFI)%20do%20exemplo%20CL%20hello_world.md), alterando apenas o nome da região para  ```us-west-2``` no item 2 da parte 1.
 
-**Parte 2: ****Configurando a instância para trabalhar com SDAccel**
+
+**Parte 2: Configurando a instância para trabalhar com SDAccel**
 
 1. Configure o AWS CLI inserindo as mesmas credenciais (AWS Access Key Id e AWS Secret Access key) utilizadas na Parte 1
+```bash
+$ aws configure
+AWS Access Key ID [None]: 
+AWS Secret Access Key [None]: 
+Default region name [None]: # <use a região us-west-2>
+Default output format [None]: # json
+```
+	
 
-	**aws configure	AWS Access Key ID [None]: 	AWS Secret Access Key [None]: 	Default region name [None]: **<use a região us-west-2>**	Default output format [None]:** json
-
-2. Clone** **o repositório que contém os arquivos necessários para executar o SDAccel e , em seguida, compile e instale os drivers necessários. Para isso, execute o seguintes comandos
-
-git clone https://github.com/aws/aws-fpga.git $AWS_FPGA_REPO_DIR  cd $AWS_FPGA_REPO_DIR                                         source sdaccel_setup.sh
+2. ``Clone`` o repositório que contém os arquivos necessários para executar o SDAccel e , em seguida, compile e instale os drivers necessários. Para isso, execute o seguintes comandos
+```bash
+$ git clone https://github.com/aws/aws-fpga.git $AWS_FPGA_REPO_DIR  
+$ cd $AWS_FPGA_REPO_DIR                                         
+$ source sdaccel_setup.sh
+```
 
 **Parte 3:  Executando o exemplo Hello World do SDAccel na AWS F1**
 
 1.   Execute os seguintes comandos para configurar o ambiente SDAccel
 
-cd $AWS_FPGA_REPO_DIR  source sdaccel_setup.shsource $XILINX_SDX/settings64.sh
+```bash
+$ cd $AWS_FPGA_REPO_DIR  
+$ source sdaccel_setup.sh                                         
+$ source $XILINX_SDX/settings64.sh
+```
+
 
 2. Gere e execute Os fluxos de emulação SDAccel, que permitem o teste e debug, por exemplo, da aplicação antes da implantação na F1. 
 
 Para isso, execute o fluxo de emulação SW para o exemplo hello world SDAccel
+```bash
+$ cd $SDACCEL_DIR/examples/xilinx/getting_started/host/helloworld_ocl/  
+$ make clean                                         
+$ make check TARGETS=sw_emu DEVICES=$AWS_PLATFORM all
+```
 
-	cd $SDACCEL_DIR/examples/xilinx/getting_started/host/helloworld_ocl/	make clean	make check TARGETS=sw_emu DEVICES=$AWS_PLATFORM all
-
-	
-
-	Em seguida, execute o fluxo de emulação HW para o exemplo hello world SDAccel
-
-	cd $SDACCEL_DIR/examples/xilinx/getting_started/host/helloworld_ocl/	make clean	make check TARGETS=hw_emu DEVICES=$AWS_PLATFORM all
+Em seguida, execute o fluxo de emulação HW para o exemplo hello world SDAccel
+```bash
+$ cd $SDACCEL_DIR/examples/xilinx/getting_started/host/helloworld_ocl/  
+$ make clean                                         
+$ make check TARGETS=hw_emu DEVICES=$AWS_PLATFORM all
+```
 
 3. Os seguintes arquivos devem ser gerados para executar na instância f1:
 
@@ -56,19 +75,30 @@ Para isso, execute o fluxo de emulação SW para o exemplo hello world SDAccel
 
 	Antes  da realização desse processo é necessário criar um bucket com uma pasta para guardar um DCP que será gerado e uma pasta de log para guardar o arquivo de log. Para isso, execute os comandos abaixo:
 
-$ aws s3 mb s3://<bucket-name> --region <region>   # Criar um S3 bucket (Escolha um nome único para o bucket)	$ aws s3 mb s3://<bucket-name>/<dcp-folder-name>/   # Criar uma pasta para o DCP
-
+```bash
+$ aws s3 mb s3://<bucket-name> --region <region>   # Criar um S3 bucket (Escolha um nome único para o bucket)
+$ aws s3 mb s3://<bucket-name>/<dcp-folder-name>/   # Criar uma pasta para o DCP
 aws s3 mb s3://<bucket-name>/<logs-folder-name>/ # Criar uma pasta para guardar seu arquivo de log
+```
 
 * Geração  do host application e do *.xclbin (Xillinx FPGA binary file)
 
-cd $SDACCEL_DIR/examples/xilinx/getting_started/host/helloworld_ocl/	make clean	make TARGETS=hw DEVICES=$AWS_PLATFORM all
+```bash
+$ cd $SDACCEL_DIR/examples/xilinx/getting_started/host/helloworld_ocl/
+$ make clean                                         
+$ make TARGETS=hw DEVICES=$AWS_PLATFORM all
+```
 
 * Criação do AWS FPGA binary e AFI a partir do *.xclbin (Xilinx FPGA binary file)
+```bash
+$ cd xclbin $SDACCEL_DIR/tools/create_sdaccel_afi.sh \
+		-xclbin=vector_addition.hw.xilinx_aws-vu9p-f1_4ddr-xpr-2pr_4_0.xclbin \
+		-s3_bucket=<bucket-name> \
+		-s3_dcp_key=<dcp-folder-name> \
+		-s3_logs_key=<logs-folder-name>
+```
 
-		cd xclbin		$SDACCEL_DIR/tools/create_sdaccel_afi.sh \		-xclbin=vector_addition.hw.xilinx_aws-vu9p-f1_4ddr-xpr-2pr_4_0.xclbin \		-s3_bucket=<bucket-name> \		-s3_dcp_key=<dcp-folder-name> \		-s3_logs_key=<logs-folder-name>
-
-O script create_sdaccel_afi.sh faz o seguinte:
+O script create_sdaccel_afi.sh realiza os seguintes processos:
 
 * Inicia um processo em segundo plano para criar a AFI
 
@@ -79,29 +109,35 @@ O script create_sdaccel_afi.sh faz o seguinte:
 4. O processo de criação do AFI iniciado em background não é instantâneo. É preciso garantir que o processo seja concluído com sucesso antes de poder ser executado na instância F1. 
 
 5. Observe os valores das IDs AFI abrindo o arquivo _afi_id.txt
-
-	cat *afi_id.txt
+```bash 
+cat *afi_id.txt
+```
+	
 
 6. Use a describe-fpga-images API para verificar o status do processo de geração da AFI
-
+```bash
 aws ec2 describe-fpga-images --fpga-image-ids <AFI ID>
+```
+
+
 
 Quando a criação do AFI for concluída com sucesso, a saída deve conter:
 
-...	"State": {  	  "Code": "available"	 },	...
+``...
+	"State": {
+  	  "Code": "available"
+	 },
+	...``
 
 Aguarde até que o AFI fique disponível antes de continuar a executar a aplicação na instância F1.
 
 7. Execute o Host Application utilizando o seguinte comando
-
-	cd ..
-
-sudo sh
-
-source /opt/Xilinx/SDx/2017.1.rte.4ddr/setup.sh   
-
-./helloworld 
-
+```bash
+$ cd ..
+$ source /opt/Xilinx/SDx/2017.1.rte.4ddr/setup.sh 
+$ ./helloworld 
+```
+	
 8. O exemplo de aplicação exibirá as seguintes mensagens: 
 
 	![image alt text](image_0.png)
