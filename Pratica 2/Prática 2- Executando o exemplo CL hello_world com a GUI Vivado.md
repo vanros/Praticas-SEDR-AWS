@@ -136,11 +136,11 @@ $ export subsystem_vendor_id=0xFEDD
 set_property -name {xsim.compile.tcl.pre} -value $::aws::make_faas::_nsvars::script_dir/../../hlx_examples/build/RTL/cl_hello_world/verif/scripts/dpi_xsim.tcl -objects [get_filesets sim_1]
 ```
 
-4. Em Project Manager, clique com o botão direito em Simulation e selecione Simulation Settings
+4. Em Project Manager, clique com o botão direito em ```Simulation``` e selecione ```Simulation Settings```
 
-5. Na tab Elaboration adicione o seguinte valor para xsim.elaborate.xelab.more_options
+5. Na tab ```Elaboration``` adicione o valor ```-sv_lib dpi ``` para ```xsim.elaborate.xelab.more_options```
 
-	-sv_lib dpi
+	
 
 	![image alt text](image_0.png)
 
@@ -148,17 +148,17 @@ set_property -name {xsim.compile.tcl.pre} -value $::aws::make_faas::_nsvars::scr
 
 As configurações podem ser diferentes dependendo do simulador. Certos simuladores de terceiros podem precisar que seja incluído um path explícito o diretório de design para projetos de exemplo RTL fornecidos como cl_hello_world e cl_dram_dma. Para isso, na opção Verilog, selecione a caixa ... e clique no botão + sob Verilog Include Files Search Paths e selecione o path para o diretório cl/ cl_example/design.
 
-**Parte 5: Implementando o arquivo Design/Tar **
+**Parte 5: Implementando o arquivo Design/Tar**
 
-1. Na tab Design Runs, clique com o botão direito em  impl_1 e selecione Lauch Runs
+1. Na tab ```Design Runs```, clique com o botão direito em  ```impl_1``` e selecione ```Lauch Runs```
 
-2. Clique em OK na caixa de diálogo Launch Runs e depois clique em OK na caixa de diálogo Missing Synthesis Results
+2. Clique em OK na caixa de diálogo ```Launch Runs``` e depois clique em OK na caixa de diálogo ```Missing Synthesis Results```
 
 	![image alt text](image_1.png)
 
 3. Após isso, a sintetização e a implementação serão executadas
 
-4. Após terminada a execução o arquivo .Developer_CL.tar será gerado no diretório example_projects/cl_hello_world.runs/faas_1/build/checkpoints/to_aws/
+4. Após terminada a execução, o arquivo .Developer_CL.tar será gerado no diretório ```example_projects/cl_hello_world.runs/faas_1/build/checkpoints/to_aws/```
 
 5. Com o arquivo .tar gerado é possível criar uma uma AFI para carregá-la em uma instância F1. Para isso, deve-se seguir a prática [Criação de uma Amazon FPGA Image (AFI) do exemplo CL hello_world](https://github.com/vanros/Praticas-SEDR-AWS/blob/master/Pratica%201/_Pr%C3%A1tica%201-%20Cria%C3%A7%C3%A3o%20de%20uma%20Amazon%20FPGA%20Image%20(AFI)%20do%20exemplo%20CL%20hello_world.md), a partir da parte 1 ítem 9.
 
