@@ -83,10 +83,9 @@ $ chmod 400 devenv-key.pem
 1. Criar e conectar uma instância t2.2xlarge com o Ambiente de desenvolvimento **FPGA Developer AMI.**
 
     1. Execute o comando a seguir, substituindo o ID do security group e o nome da key pair, obtidos na parte 1. 
-   
-   ```bash
-   $ aws ec2 run-instances --image-id ami-626e9918 --security-group-ids sg-6fc17419 --count 1 --instance-type t2.2xlarge --key-name nomeDaKeyPair --query 'Instances[0].InstanceId' ```
-
+```bash
+ $ aws ec2 run-instances --image-id ami-626e9918 --security-group-ids sg-6fc17419 --count 1 --instance-type t2.2xlarge --key-name nomeDaKeyPair --query 'Instances[0].InstanceId'
+```
 Esse comando retornará o ID da instância, que deverá ser guardado para uso posterior.
 
 2. A inicialização da instância pode levar alguns instantes. Assim que a instância estiver em execução, o endereço de IP público que será usado para se conectar à instância será recuperado com o comando a seguir. Substitua o ID da instância pelo obtido na etapa anterior.
@@ -187,15 +186,15 @@ A saída desse comando é composta dois identificadores referentes a AFI criada:
 O comando  de descrição-fpga-images permite verificar o estado da AFI durante o processo de geração. É preciso fornecer o FPGA Image Identifier retornado, substitua no comando abaixo:
 
 ```bash
-    $ aws ec2 describe-fpga-images --fpga-image-ids afi-016fd6ccf3c73bf28
- ```
+$ aws ec2 describe-fpga-images --fpga-image-ids afi-016fd6ccf3c73bf28
+```
 
 A AFI só pode ser carregada em uma instância F1 após a conclusão da sua geração e o estado AFI está configurado para disponível, como no seguinte exemplo:
-
-   {
-        "FpgaImages": [
+```
+{
+        "FpgaImages": {
             {
-			    ...
+			   
                 "State": {
                     "Code": "available"
                 },
@@ -204,8 +203,8 @@ A AFI só pode ser carregada em uma instância F1 após a conclusão da sua gera
 			    ...
             }
         ]
-    }
-
+    }
+```
 Após a conclusão da geração da AFI, a AWS colocará os logs na localização do bucket (s3: // <nome do bucket> / <logs-pasta-name>) fornecido pelo desenvolvedor. A presença desses logs é uma indicação de que o processo de criação está completo.
 
 
