@@ -18,7 +18,7 @@ Nesta prática vamos implementar uma soma de dois valores, a partir do exemplo h
 
 * Implementação do somador no software.
 
-**Parte 1: **
+**Parte 1:**
 
 1. Faça um Fork do repositório [https://github.com/aws/aws-fpga.git](https://github.com/aws/aws-fpga.git) para um repositório da sua conta do Github
 
@@ -38,7 +38,7 @@ Nesta prática vamos implementar uma soma de dois valores, a partir do exemplo h
 
 	1. Perceba que a partir da linha 49 estão definidos os wires. Adicione os wires necessários.
 
-		 A partir da linha 243 até a linha 263 está implementado o processo de resposta de leitura. Perceba que quando a leitura realizada é do registrador ``HELLO_WORLD_REG_ADD``, o valor a ser escrito será ``hello_world_q_byte_swapped[31:0]``.
+	A partir da linha 243 até a linha 263 está implementado o processo de resposta de leitura. Perceba que quando a leitura realizada é do registrador ``HELLO_WORLD_REG_ADD``, o valor a ser escrito será ``hello_world_q_byte_swapped[31:0]``.
 
 	![image alt text](image_0.png)
 
@@ -59,9 +59,7 @@ Nesta prática vamos implementar uma soma de dois valores, a partir do exemplo h
     2. Primeiro, é preciso declarar os registradores e seus endereços, da mesma forma que foram declarados no arquivo ``cl_common_defines.vh``.  Nas linhas 40 e 41 adicione a declaração dos registradores.
 	
 
-    3. Perceba que entre as linhas 236 e 256 a escrita e a leitura do registrador  ```HELLO_WORLD_REG_ADDR```  foram   implementadas, usando as funções ``fpga_pci_poke`` e ``fpga_pci_peek``. Com base nesse código, vamos utilizar a função ``fpga_pci_poke`` para escrever os dois valores de entrada nos registrados definidos para armazenar os dados de entrada, por exemplo ``X_REG_ADDR UINT64_C(0x508)`` e ``Y_REG_ADDR UINT64_C(0x50C)``, e a função ``fpga_pci_peek`` para ler o resultado da soma que estará armazenada no registrador definido para armazenar o dado de saída, por exemplo ``Z_REG_ADDR UINT64_C(0x510)``.
-
-    9. Para isso, abaixo da função descrita acima (linha 257), adicione o seguinte código:
+    3. Perceba que entre as linhas 236 e 256 a escrita e a leitura do registrador  ```HELLO_WORLD_REG_ADDR```  foram   implementadas, usando as funções ``fpga_pci_poke`` e ``fpga_pci_peek``. Com base nesse código, vamos utilizar a função ``fpga_pci_poke`` para escrever os dois valores de entrada nos registrados definidos para armazenar os dados de entrada, por exemplo ``X_REG_ADDR UINT64_C(0x508)`` e ``Y_REG_ADDR UINT64_C(0x50C)``, e a função ``fpga_pci_peek`` para ler o resultado da soma que estará armazenada no registrador definido para armazenar o dado de saída, por exemplo ``Z_REG_ADDR UINT64_C(0x510)``. Para isso, abaixo da função descrita acima (linha 257), adicione o seguinte código:
 
 ```bash
   //adder
