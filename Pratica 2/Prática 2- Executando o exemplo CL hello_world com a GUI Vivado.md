@@ -139,7 +139,7 @@ set_property -name {xsim.compile.tcl.pre} -value $::aws::make_faas::_nsvars::scr
 
 4. Em Project Manager, clique com o botão direito em ```Simulation``` e selecione ```Simulation Settings```
 
-5. Na tab ```Elaboration``` adicione o valor ```-sv_lib dpi ``` para ```xsim.elaborate.xelab.more_options```
+5. Na tab ```Elaboration``` adicione o valor de ```-sv_lib dpi ``` para ```xsim.elaborate.xelab.more_options```
 
 	
 
