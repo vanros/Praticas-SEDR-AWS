@@ -33,12 +33,11 @@ Nesta prática vamos implementar uma soma de dois valores, a partir do exemplo h
 ```
 
    3. Adicione os três registradores necessários para a implementação do somador, nos endereços seguintes.
-   ```bash
-   `define X_REG_ADDR                   32'h0000_0508
-   `define Y_REG_ADDR                       32'h0000_050C
-   `define Z_REG_ADDR                       32'h0000_0510
-   ```
-   
+   ```bash 
+`define X_REG_ADDR                   32'h0000_0508
+`define Y_REG_ADDR                       32'h0000_050C
+`define Z_REG_ADDR                       32'h0000_0510
+```
    
    
 3. Feito isso, teremos que modificar o arquivo de implementação do design. Abra o arquivo ```/hdk/cl/examples/cl_hello_world/design/cl_hello_world.sv``` 
