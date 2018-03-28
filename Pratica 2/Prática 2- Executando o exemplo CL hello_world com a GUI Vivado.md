@@ -6,7 +6,7 @@ Elaborada por Jardel Silveira e Vanessa Rodrigues
 
 **Descrição**
 
-Nesta prática vamos executar o exemplo CL hello_world, que foi usado na prática [Criação de uma Amazon FPGA Image (AFI) do exemplo CL hello_world](https://docs.google.com/document/d/1mwVn_RUcSmfmgUDOaVvj1oQJ2l-v-RowI3btrjfVI2w/edit#heading=h.u0q2xroig8ra). Porém não usaremos o modo batch como anteriormente, ao invés disso, faremos o uso da interface gráfica do vivado para a sintetização e a simulação do  projeto.
+Nesta prática vamos executar o exemplo CL hello_world, que foi usado na prática [Criação de uma Amazon FPGA Image (AFI) do exemplo CL hello_world](https://github.com/vanros/Praticas-SEDR-AWS/blob/master/Pratica%201/_Pr%C3%A1tica%201-%20Cria%C3%A7%C3%A3o%20de%20uma%20Amazon%20FPGA%20Image%20(AFI)%20do%20exemplo%20CL%20hello_world.md). Porém não usaremos o modo batch como anteriormente, ao invés disso, faremos o uso da interface gráfica do vivado para a sintetização e a simulação do  projeto.
 
 **Objetivos de Aprendizagem**
 
@@ -20,7 +20,7 @@ Nesta prática vamos executar o exemplo CL hello_world, que foi usado na prátic
 
 **Parte 1: Configurar a máquina local e a instância para permitir o acesso a interface gráfica**
 
-1. Execute uma instância EC2 t2.2xlarge, seguindo o procedimento descrito na prática 1
+1. Execute uma instância EC2 t2.2xlarge, seguindo o procedimento descrito na prática [Criação de uma Amazon FPGA Image (AFI) do exemplo CL hello_world](https://github.com/vanros/Praticas-SEDR-AWS/blob/master/Pratica%201/_Pr%C3%A1tica%201-%20Cria%C3%A7%C3%A3o%20de%20uma%20Amazon%20FPGA%20Image%20(AFI)%20do%20exemplo%20CL%20hello_world.md)
 
 2. Na máquina local, execute o seguinte comando para permitir que seja acessada por qualquer host
 ```bash
@@ -160,7 +160,7 @@ As configurações podem ser diferentes dependendo do simulador. Certos simulado
 
 4. Após terminada a execução o arquivo .Developer_CL.tar será gerado no diretório example_projects/cl_hello_world.runs/faas_1/build/checkpoints/to_aws/
 
-5. Com o arquivo .tar gerado é possível criar uma uma AFI para carregá-la em uma instância F1. Para isso, deve-se seguir a prática [ Criar uma Amazon FPGA Image (AFI) de um dos Exemplos CL](https://docs.google.com/document/d/1mwVn_RUcSmfmgUDOaVvj1oQJ2l-v-RowI3btrjfVI2w/edit#heading=h.u0q2xroig8ra), a partir da parte 1 ítem 9.
+5. Com o arquivo .tar gerado é possível criar uma uma AFI para carregá-la em uma instância F1. Para isso, deve-se seguir a prática [Criação de uma Amazon FPGA Image (AFI) do exemplo CL hello_world](https://github.com/vanros/Praticas-SEDR-AWS/blob/master/Pratica%201/_Pr%C3%A1tica%201-%20Cria%C3%A7%C3%A3o%20de%20uma%20Amazon%20FPGA%20Image%20(AFI)%20do%20exemplo%20CL%20hello_world.md), a partir da parte 1 ítem 9.
 
 **Referências**
 
