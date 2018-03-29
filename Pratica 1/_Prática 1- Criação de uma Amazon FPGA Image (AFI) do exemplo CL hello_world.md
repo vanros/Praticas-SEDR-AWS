@@ -293,11 +293,11 @@ $ exit
 
 * Retorne para o EC2 Dashboard: [https://console.aws.amazon.com/ec2](https://console.aws.amazon.com/ec2)
 
-* Selecione **Instances **no menu lateral esquerdo.
+* Selecione **Instances** no menu lateral esquerdo.
 
 * Selecione a Instância que está sendo executada, clique **Actions**, escolha **Instance State** e em seguida, clique em **Terminate**.
 
-* Selecione **Elastic Block Store **no menu lateral esquerdo e clique em **Volumes**.
+* Selecione **Elastic Block Store** no menu lateral esquerdo e clique em **Volumes**.
 
 * Selecione os volumes listados na tela, clique em **Actions**, e em seguida, clique em **Delete Volumes**.
 
