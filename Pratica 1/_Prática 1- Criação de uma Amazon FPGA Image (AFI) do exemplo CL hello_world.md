@@ -94,7 +94,7 @@ aws ec2 describe-instances --instance-ids "i-0787e4282810ef9cf" --query 'Reserva
 ```
 
 
-3. Para se conectar à instância, use o endereço de IP público e chave privada. Para isso, entre no diretório em que a key pair foi guardada e utilize o seguinte comando:
+3. Para se conectar à instância, use o endereço de IP público e chave privada. Para isso, entre no diretório em que a key pair foi guardada e utilize o seguinte comando, substituindo o IP público pelo obtido na etapa anterior:
 ```bash
 ssh -i nomeDaKeyPair.pem centos@54.183.22.255
 ```
@@ -251,7 +251,7 @@ Se o espaço estiver limpo, a saída do comando será a seguinte:
 
 ![image alt text](image_1.png)
 
-Se a descrição retorna um status 'Ocupado', o FPGA ainda está executando a operação anterior em segundo plano. É necessário aguardar até que o status seja 'cleared' como acima.
+Se a descrição retorna um status 'Ocupado', a FPGA ainda está executando a operação anterior em segundo plano. É necessário aguardar até que o status seja 'cleared' como acima.
 
 Para carregar a AFI na FPGA é necessário usar o comando abaixo, substituindo o AGFI ID da AFI criada.
 ```bash 
