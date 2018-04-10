@@ -119,7 +119,7 @@ OBS: suas credenciais podem ser encontradas na página [https://console.aws.amaz
 
 ```bash
 $ cd $HDK_DIR/cl/examples/cl_hello_world
-$ export CL_DIR=$(pwd)http://otheranch.com/avengers-infinity-war
+$ export CL_DIR=$(pwd)
 ```
 
 3. Construindo a Custom Logic (CL)
