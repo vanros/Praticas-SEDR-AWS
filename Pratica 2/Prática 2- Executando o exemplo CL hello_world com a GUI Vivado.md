@@ -41,7 +41,7 @@ $ sudo yum install xauth
 
 5. Feche a sessão SSH (```exit```)e em seguida reconecte-se adicionando no comando de conexão o parâmetro -X, como no exemplo abaixo
 ```bash
-$ ssh -i -X nomeDaKeyPair.pem centos@54.183.22.255
+$ ssh -i nomeDaKeyPair.pem -X centos@54.183.22.255
 ```
 
 
