@@ -82,7 +82,7 @@ $ chmod 400 nomeKeyPair-key.pem
 
     1. Execute o comando a seguir, substituindo o ID do security group e o nome da key pair, obtidos na parte 1. 
 ```bash
- $ aws ec2 run-instances --image-id ami-626e9918 --security-group-ids sg-6fc17419 --count 1 --instance-type t2.2xlarge --key-name nomeDaKeyPair --query 'Instances[0].InstanceId'
+ $ aws ec2 run-instances --image-id ami-626e9918 --security-group-ids sg-6fc17419 --count 1 --instance-type t2.2xlarge --key-name nomeKeyPair-key --query 'Instances[0].InstanceId'
 ```
    Esse comando retornará o ID da instância, que deverá ser guardado para uso posterior.
 
