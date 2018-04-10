@@ -63,7 +63,7 @@ $ aws ec2 authorize-security-group-ingress --group-name nomeSecurityGroup-sg --p
 Use o comando abaixo:
 
 ```bash 
-$ aws ec2 create-key-pair --key-name nomeKeyPair-key --query 'KeyMaterial' --output text > devenv-key.pem
+$ aws ec2 create-key-pair --key-name nomeKeyPair --query 'KeyMaterial' --output text > devenv-key.pem
 ```
 
 		
@@ -72,7 +72,7 @@ $ aws ec2 create-key-pair --key-name nomeKeyPair-key --query 'KeyMaterial' --out
 6. No Linux, é necessário alterar o modo de arquivo, de forma que somente você tenha acesso ao arquivo de chave.
 
 ```bash 
-$ chmod 400 nomeKeyPair-key.pem
+$ chmod 400 nomeKeyPair.pem
 ```
 	
 
@@ -82,7 +82,7 @@ $ chmod 400 nomeKeyPair-key.pem
 
     1. Execute o comando a seguir, substituindo o ID do security group e o nome da key pair, obtidos na parte 1. 
 ```bash
- $ aws ec2 run-instances --image-id ami-626e9918 --security-group-ids sg-6fc17419 --count 1 --instance-type t2.2xlarge --key-name nomeKeyPair-key --query 'Instances[0].InstanceId'
+ $ aws ec2 run-instances --image-id ami-626e9918 --security-group-ids sg-6fc17419 --count 1 --instance-type t2.2xlarge --key-name nomeKeyPair --query 'Instances[0].InstanceId'
 ```
    Esse comando retornará o ID da instância, que deverá ser guardado para uso posterior.
 
