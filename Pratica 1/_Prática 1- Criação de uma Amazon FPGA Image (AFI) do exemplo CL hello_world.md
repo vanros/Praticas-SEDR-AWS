@@ -63,7 +63,7 @@ $ aws ec2 authorize-security-group-ingress --group-name nomeSecurityGroup-sg --p
 Use o comando abaixo:
 
 ```bash 
-$ aws ec2 create-key-pair --key-name nomeKeyPair --query 'KeyMaterial' --output text > devenv-key.pem
+$ aws ec2 create-key-pair --key-name nomeKeyPair --query 'KeyMaterial' --output text > nomeKeyPair.pem
 ```
 
 		
