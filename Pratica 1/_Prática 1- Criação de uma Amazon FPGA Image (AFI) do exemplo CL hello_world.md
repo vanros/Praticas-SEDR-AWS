@@ -55,7 +55,7 @@ Neste exemplo, o registrador Virtual LED é usado para direcionar o sinal do LED
 ```bash 
 $ aws ec2 create-security-group --group-name nomeSecurityGroup-sg --description "Descricao do security group"
 
-$ aws ec2 authorize-security-group-ingress --group-name nomeDoSecurityGroup-sg --protocol tcp --port 22 --cidr  0.0.0.0/0
+$ aws ec2 authorize-security-group-ingress --group-name nomeSecurityGroup-sg --protocol tcp --port 22 --cidr  0.0.0.0/0
 ```
 
 
@@ -86,7 +86,7 @@ $ chmod 400 nomeKeyPair-key.pem
 ```
    Esse comando retornará o ID da instância, que deverá ser guardado para uso posterior.
 
-2. A inicialização da instância pode levar alguns instantes. Assim que a instância estiver em execução, o endereço de IP público que será usado para se conectar à instância será recuperado com o comando a seguir. Substitua o ID da instância pelo obtido na etapa anterior.
+2. A inicialização da instância pode rlevar alguns instantes. Assim que a instância estiver em execução, o endereço de IP público que será usado para se conectar à instância será recuperado com o comando a seguir. Substitua o ID da instância pelo obtido na etapa anterior.
 ```bash
 aws ec2 describe-instances --instance-ids "i-0787e4282810ef9cf" --query 'Reservations[0].Instances[0].PublicIpAddress'
 ```
