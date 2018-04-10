@@ -53,7 +53,7 @@ No terminal digite ``` aws configure ``` e insira as informações obtidas (O ID
 4. Primeiro, crie um novo security group e em seguida, adicione uma regra que permite o tráfego de entrada na porta 22 para o SSH. Guarde o ID do security group para uso posterior.
 
 ```bash 
-$ aws ec2 create-security-group --group-name nomeSecurityGroup-sg --description "Descricao do security group"
+$ aws ec2 create-security-group --group-name **nomeSecurityGroup**-sg --description "Descricao do security group"
 
 $ aws ec2 authorize-security-group-ingress --group-name nomeDoSecurityGroup-sg --protocol tcp --port 22 --cidr  0.0.0.0/0
 ```
@@ -63,7 +63,7 @@ $ aws ec2 authorize-security-group-ingress --group-name nomeDoSecurityGroup-sg -
 Use o comando abaixo:
 
 ```bash 
-$ aws ec2 create-key-pair --key-name nomeKeyPair-key --query 'KeyMaterial' --output text > devenv-key.pem
+$ aws ec2 create-key-pair --key-name **nomeKeyPair**-key --query 'KeyMaterial' --output text > devenv-key.pem
 ```
 
 		
@@ -72,7 +72,7 @@ $ aws ec2 create-key-pair --key-name nomeKeyPair-key --query 'KeyMaterial' --out
 6. No Linux, é necessário alterar o modo de arquivo, de forma que somente você tenha acesso ao arquivo de chave.
 
 ```bash 
-$ chmod 400 devenv-key.pem
+$ chmod 400 **nomeKeyPair**-key.pem
 ```
 	
 
