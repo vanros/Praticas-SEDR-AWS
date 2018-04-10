@@ -46,7 +46,7 @@ Neste exemplo, o registrador Virtual LED é usado para direcionar o sinal do LED
 
 	A AWS CLI solicitará algumas informações de segurança, dentre elas o ID da chave de acesso da AWS e a chave de acesso secreta da AWS, que são  credenciais da sua conta. Para criá-las acesse a página [https://console.aws.amazon.com/iam/home#/home](https://console.aws.amazon.com/iam/home#/home), clique em Users e crie um novo usuário com permissões de Admin. Obtenha as informações de Acess Key ID e secret Acess Key. 
 
-No terminal digite ``` aws configure ``` e insira as informações obtidas (O ID da chave de acesso da AWS e a chave de acesso secreta). Para a região insira ``` us-east-1``` e para o formato de saída defina ```json```.
+	No terminal digite ``` aws configure ``` e insira as informações obtidas (O ID da chave de acesso da AWS e a chave de acesso secreta). Para a região insira ``` us-east-1``` e para o formato de saída defina ```json```.
 
 3. A próxima etapa é configurar os pré-requisitos para a execução de uma instância do EC2 que podem ser acessados usando o SSH. Para fazer todas as configurações recomendadas pela AWS é necessário seguir o tutorial descrito no link [https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/get-set-up-for-amazon-ec2.html](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/get-set-up-for-amazon-ec2.html) . Porém, para esta prática será necessário apenas criar um security group e uma key-pair. O  procedimento será descrito nos ítens a seguir.
 
