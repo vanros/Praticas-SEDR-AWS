@@ -112,7 +112,7 @@ $ source hdk_setup.sh
 
 Obs: Ao usar a FPGA developer AMI a variável AWS_FPGA_REPO_DIR corresponde ao diretório /home/centos/src/project_data/aws-fpga.
 
-Configure o AWS CLI inserindo as mesmas informações usadas na parte 1.
+Configure o AWS CLI (`aws configure`) inserindo as mesmas informações usadas na parte 1.
 
 OBS: suas credenciais podem ser encontradas na página [https://console.aws.amazon.com/iam/home?#/security_credential](https://console.aws.amazon.com/iam/home?#/security_credential) 
 
