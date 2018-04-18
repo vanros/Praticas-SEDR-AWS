@@ -20,9 +20,11 @@ O Virtual LED é um registrador de somente leitura de 16 bits, que "sombreia" os
 
 O design do exemplo hello_world utiliza o Virtual LED e um DIP switch que consistem em dois sinais descritos no arquivo (./../../../common/shell_stable/design/interfaces/cl_ports.vh). 
 
- `  input[15:0] sh_cl_status_vdip,               //Virtual DIP. 
+ ```bash
+ input[15:0] sh_cl_status_vdip,               //Virtual DIP. 
    
-   output logic[15:0] cl_sh_status_vled,        //Virtual LEDs `
+ output logic[15:0] cl_sh_status_vled,        //Virtual LEDs 
+ ```
 
 Neste exemplo, o registrador Virtual LED é usado para direcionar o sinal do LED virtual,  cl_sh_status_vled, e o Virtual DIP switch, sh_cl_status_vdip, é usado para "gatilhar" o valor do registrador Virtual LED enviado ao LED virtual. Por exemplo, se o sh_cl_status_vdip é setado para 16'h00FF, então apenas os 8 bits do registrador Virtual LED serão sinalizados no sinal do LED virtual cl_sh_status_vled. Porém, se o sh_cl_status_vdip é setado para 16'hFFFF, então os 16 bits do registrador Virtual LED serão sinalizados no sinal do LED virtual cl_sh_status_vled.
 
