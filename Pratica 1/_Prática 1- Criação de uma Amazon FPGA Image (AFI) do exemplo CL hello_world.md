@@ -64,7 +64,7 @@ $ aws ec2 authorize-security-group-ingress --group-name <SecurityGroup-name>-sg 
 Use o comando abaixo:
 
 ```bash 
-$ aws ec2 create-key-pair --key-name <KeyPair-name> --query 'KeyMaterial' --output text > nomeKeyPair.pem
+$ aws ec2 create-key-pair --key-name <KeyPair-name> --query 'KeyMaterial' --output text > <KeyPair-name>.pem
 ```
 
 		
@@ -73,7 +73,7 @@ $ aws ec2 create-key-pair --key-name <KeyPair-name> --query 'KeyMaterial' --outp
 6. No Linux, é necessário alterar o modo de arquivo, de forma que somente você tenha acesso ao arquivo de chave.
 
 ```bash 
-$ chmod 400 KeyPair-name>.pem
+$ chmod 400 <KeyPair-name>.pem
 ```
 	
 
