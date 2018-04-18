@@ -49,7 +49,7 @@ Neste exemplo, o registrador Virtual LED é usado para direcionar o sinal do LED
 
 	No terminal digite ``` aws configure ``` e insira as informações obtidas (O ID da chave de acesso da AWS e a chave de acesso secreta). Para a região insira ``` us-east-1``` e para o formato de saída defina ```json```.
 
-3. A próxima etapa é configurar os pré-requisitos para a execução de uma instância do EC2 que podem ser acessados usando o SSH. Para fazer todas as configurações recomendadas pela AWS é necessário seguir o tutorial descrito no link [https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/get-set-up-for-amazon-ec2.html](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/get-set-up-for-amazon-ec2.html) . Porém, para esta prática será necessário apenas criar um security group e uma key-pair. O  procedimento será descrito nos ítens a seguir.
+3. A próxima etapa é configurar os pré-requisitos para a execução de uma instância do EC2 que podem ser acessados usando o SSH.  Será necessário criar um security group e uma key-pair. O  procedimento será descrito nos ítens a seguir.
 
 4. Primeiro, crie um novo security group e em seguida, adicione uma regra que permite o tráfego de entrada na porta 22 para o SSH. Guarde o ID do security group para uso posterior.
 
