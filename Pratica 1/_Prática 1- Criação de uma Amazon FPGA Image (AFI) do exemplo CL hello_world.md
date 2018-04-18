@@ -125,7 +125,7 @@ $ export CL_DIR=$(pwd)
 
 3. Construindo a Custom Logic (CL)
 
-Nesta etapa será gerado um DCP, que é um arquivo .tar, para criar a Custom Logic. A geração do DCP pode demorar até várias horas para completar, porém é possível ser notificado via-email quando a compilação for concluída. Para isso, é necessário configurar notificação via SN:
+Nesta etapa será gerado um DCP, que é um arquivo .tar, para criar a Custom Logic. A geração do DCP pode demorar até 3 horas para completar, porém é possível ser notificado via-email quando a compilação for concluída. Para isso, é necessário configurar notificação via SN:
 
 ```bash
 $ export EMAIL=your.email@example.com
