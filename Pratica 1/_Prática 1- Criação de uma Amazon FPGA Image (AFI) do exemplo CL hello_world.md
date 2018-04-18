@@ -132,7 +132,7 @@ $ export EMAIL=your.email@example.com
 $ $HDK_COMMON_DIR/scripts/notify_via_sns.py
 ```
 
-Após isso, é necessário verificar o endereço de e-mail e confirmar a assinatura. Uma vez que a compilação esteja completa, um e-mail será enviado notificando que a compilação foi concluída, ou seja, o DCP foi gerado.
+Após isso, é necessário verificar o e-mail e confirmar a assinatura. Uma vez que a compilação esteja completa, um e-mail será enviado notificando que a compilação foi concluída, ou seja, o DCP foi gerado.
 
 O formato do arquivo gerado será YY_MM_DD-hhmm.Developer_CL.tar e após ser gerado estará disponível no diretório  $CL_DIR/build/checkpoints/to_aws/. Caso a configuração notificação via SN não tenha sido realizada, é necessário ficar verificando neste diretório se o arquivo já está disponível.
 
