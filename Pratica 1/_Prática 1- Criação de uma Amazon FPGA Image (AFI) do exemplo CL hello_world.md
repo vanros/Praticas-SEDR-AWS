@@ -256,7 +256,7 @@ Para carregar a AFI na FPGA é necessário usar o comando abaixo, substituindo o
  $ sudo fpga-load-local-image -S 0 -I agfi-09ed851c9ba0e59f0
 ```
 
-Após isso é necessário  verificar se o AFI foi carregado corretamente. A saída mostra o FPGA no estado "loaded" após a operação "load" da imagem FPGA, como abaixo:
+Após isso é necessário  verificar se a AFI foi carregado corretamente. A saída mostra o FPGA no estado "loaded" após a operação "load" da imagem FPGA, como abaixo:
 
 ```bash
    $ sudo fpga-describe-local-image -S 0 -R -H
