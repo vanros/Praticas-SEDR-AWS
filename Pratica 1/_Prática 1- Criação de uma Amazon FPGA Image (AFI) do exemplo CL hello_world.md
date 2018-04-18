@@ -138,9 +138,8 @@ O formato do arquivo gerado será YY_MM_DD-hhmm.Developer_CL.tar e após ser ger
 
 Para gerar o DCP use os seguintes comandos:
 
-$ vivado -mode batch  # Verificar se o vivado está instalado    
-
 ```bash
+$ vivado -mode batch   # Verificar se o vivado está instalado    
 $ cd $CL_DIR/build/scripts
 $ ./aws_build_dcp_from_cl.sh -notify  #Executar o script para converter o CL design para DCP. 
 ```
