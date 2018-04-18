@@ -54,9 +54,9 @@ Neste exemplo, o registrador Virtual LED é usado para direcionar o sinal do LED
 4. Primeiro, crie um novo security group e em seguida, adicione uma regra que permite o tráfego de entrada na porta 22 para o SSH. Guarde o ID do security group para uso posterior.
 
 ```bash 
-$ aws ec2 create-security-group --group-name nomeSecurityGroup-sg --description "Descricao do security group"
+$ aws ec2 create-security-group --group-name <SecurityGroup-name>-sg --description "Descricao do security group"
 
-$ aws ec2 authorize-security-group-ingress --group-name nomeSecurityGroup-sg --protocol tcp --port 22 --cidr  0.0.0.0/0
+$ aws ec2 authorize-security-group-ingress --group-name <SecurityGroup-name>-sg --protocol tcp --port 22 --cidr  0.0.0.0/0
 ```
 
 
@@ -64,7 +64,7 @@ $ aws ec2 authorize-security-group-ingress --group-name nomeSecurityGroup-sg --p
 Use o comando abaixo:
 
 ```bash 
-$ aws ec2 create-key-pair --key-name nomeKeyPair --query 'KeyMaterial' --output text > nomeKeyPair.pem
+$ aws ec2 create-key-pair --key-name <KeyPair-name> --query 'KeyMaterial' --output text > nomeKeyPair.pem
 ```
 
 		
@@ -73,7 +73,7 @@ $ aws ec2 create-key-pair --key-name nomeKeyPair --query 'KeyMaterial' --output 
 6. No Linux, é necessário alterar o modo de arquivo, de forma que somente você tenha acesso ao arquivo de chave.
 
 ```bash 
-$ chmod 400 nomeKeyPair.pem
+$ chmod 400 KeyPair-name>.pem
 ```
 	
 
