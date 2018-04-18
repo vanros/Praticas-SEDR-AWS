@@ -68,7 +68,7 @@ $ aws ec2 create-key-pair --key-name <KeyPair-name> --query 'KeyMaterial' --outp
 ```
 
 		
- Após isso, use o comando `ls` e verifique se o arquivo  .pem se encontra no diretório atual. 
+ Após isso, use o comando `ls` e verifique se o arquivo  .pem está contido no diretório atual. 
  
 6. No Linux, é necessário alterar o modo de arquivo, de forma que somente você tenha acesso ao arquivo de chave.
 
