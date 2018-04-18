@@ -95,7 +95,7 @@ aws ec2 describe-instances --instance-ids "i-0787e4282810ef9cf" --query 'Reserva
 
 3. Para se conectar à instância, use o endereço de IP público e chave privada. Para isso, entre no diretório em que a key pair foi guardada e utilize o seguinte comando, substituindo o IP público pelo obtido na etapa anterior:
 ```bash
-ssh -i nomeDaKeyPair.pem centos@54.183.22.255
+ssh -i <KeyPair-name>.pem centos@54.183.22.255
 ```
 
 Substitua o ID do IP público pelo obtido na etapa anterior.
