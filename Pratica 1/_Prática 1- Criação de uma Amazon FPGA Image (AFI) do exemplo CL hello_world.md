@@ -163,6 +163,7 @@ $ aws s3 cp LOGS_FILES_GO_HERE.txt s3://<bucket-name>/<logs-folder-name>/ #Copia
    
 
 Para criar a AFI use o seguinte comando:
+Obs: O valor do parâmetro token, no comando, deve ser atribuído por você.
 
 ```bash
 $ aws ec2 create-fpga-image \
