@@ -274,7 +274,7 @@ A saída será a seguinte:
 
 ![image alt text](image_3.png)
 
-**Parte 4: Fechando a Sessão**
+**Parte 5: Fechando a Sessão**
 
 Depois de terminar sua sessão, você pode "Parar" ou "Terminar" sua instância. Se você 'Terminar' a instância, seu volume raiz será excluído. Você precisará criar e configurar uma nova instância na próxima vez que precisar trabalhar na F1. Se você parar a instância, o volume do root é preservado e a instância interrompida pode ser reiniciada mais tarde, não precisando mais passar por etapas de configuração. A AWS não cobra por instâncias interrompidas, mas pode cobrar por qualquer volume EBS anexado à instância.
 
