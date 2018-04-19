@@ -83,7 +83,7 @@ $ chmod 400 <KeyPair-name>.pem
 
     1. Execute o comando a seguir, substituindo o ID do security group e o nome da key pair, pelos obtidos na parte 1. 
 ```bash
- $ aws ec2 run-instances --image-id ami-626e9918 --security-group-ids sg-6fc17419 --count 1 --instance-type t2.2xlarge --key-name <KeyPair-name> --query 'Instances[0].InstanceId'
+ $ aws ec2 run-instances --image-id ami-702a8b0f --security-group-ids sg-6fc17419 --count 1 --instance-type t2.2xlarge --key-name <KeyPair-name> --query 'Instances[0].InstanceId'
 ```
    Esse comando retornará o ID da instância, que deverá ser guardado para uso posterior.
 
@@ -207,7 +207,7 @@ Após a conclusão da geração da AFI, a AWS colocará os logs na localização
 
 
 
-**Parte 3 - Carregar e testar uma AFI registrada em uma instância F1**
+**Parte 4 - Carregar e testar uma AFI registrada em uma instância F1**
 
 Para realizar os próximos passos, será necessário iniciar uma instância F1. Para isso, siga os procedimentos da  Parte 2 e  substitua o parâmetro do tipo de instância para ```--instance-type f1.2xlarge```.
 
