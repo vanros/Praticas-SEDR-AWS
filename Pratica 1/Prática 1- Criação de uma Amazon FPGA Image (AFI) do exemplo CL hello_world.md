@@ -44,20 +44,20 @@ Neste exemplo, o registrador Virtual LED é usado para direcionar o sinal do LED
 Antes de iniciar uma instância EC2 é necessário fazer algumas configurações. Para esta prática serão necessárias apenas as configurações de  criar um security group e uma key-pair. Essas configurações serão descritas nos ítens a seguir.
 
 
-    1. Acesse o console da conta pelo link https://console.aws.amazon.com/ec2/v2/home. No canto superior direito da tela, escolha a região **Us East (N. Vírginia)**. 
+   1. Acesse o console da conta pelo link https://console.aws.amazon.com/ec2/v2/home. No canto superior direito da tela, escolha a região **Us East (N. Vírginia)**. 
        
-    2. No menu, em  **NETWORK E SECURITY**  selecione a opção **Security Group**. Clique em **Create Security Group**.
+   2. No menu, em  **NETWORK E SECURITY**  selecione a opção **Security Group**. Clique em **Create Security Group**.
 
-    3. Na tela seguinte, adicione o nome do Security Group. Em seguida, adicione a descrição. Na guia **Inbound**, crie as regras mostradas na imagem abaixo. Escolha **Add Rule** para cada nova regra e, em seguida, clique em **Create**. 
+   3. Na tela seguinte, adicione o nome do Security Group. Em seguida, adicione a descrição. Na guia **Inbound**, crie as regras mostradas na imagem abaixo. Escolha **Add Rule** para cada nova regra e, em seguida, clique em **Create**. 
         
-          ![image alt text](image_4.png)
+         ![image alt text](image_4.png)
      
      
-     4. No menu, em  **NETWORK E SECURITY**  selecione a opção **Key Pairs**. Clique em **Create Key Pair**.
+   4. No menu, em  **NETWORK E SECURITY**  selecione a opção **Key Pairs**. Clique em **Create Key Pair**.
       
-     5.  Atribua um nome para a Key Pair. Em seguida, clique em  **Create**.
+   5.  Atribua um nome para a Key Pair. Em seguida, clique em  **Create**.
      
-     6. Após isso, será realizado o download do arquivo .pem, que deverá ser guardado em um diretório de fácil acesso.
+   6. Após isso, será realizado o download do arquivo .pem, que deverá ser guardado em um diretório de fácil acesso.
 
 
 
