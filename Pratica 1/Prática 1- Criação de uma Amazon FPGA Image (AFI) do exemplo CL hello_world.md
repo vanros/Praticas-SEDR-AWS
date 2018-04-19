@@ -107,12 +107,11 @@ $ git clone https://github.com/aws/aws-fpga.git $AWS_FPGA_REPO_DIR
 $ cd $AWS_FPGA_REPO_DIR
 $ source hdk_setup.sh
 ```
+Após isso, será necessário configurar o AWS CLI.Para uso geral, o comando `aws configure`  é a maneira mais rápida de configurar a AWS CLI.
 
-Obs: Ao usar a FPGA developer AMI a variável AWS_FPGA_REPO_DIR corresponde ao diretório /home/centos/src/project_data/aws-fpga.
+O AWS CLI solicitará algumas informações de segurança, dentre elas o ID da chave de acesso da AWS e a chave de acesso secreta da AWS, que são credenciais da sua conta. Para criá-las acesse a página https://console.aws.amazon.com/iam/home#/home, clique em Users e crie um novo usuário com permissões de Admin. Obtenha as informações de Acess Key ID e secret Acess Key.
 
-Configure o AWS CLI (`aws configure`) inserindo as mesmas informações usadas na parte 1.
-
-OBS: suas credenciais podem ser encontradas na página [https://console.aws.amazon.com/iam/home?#/security_credential](https://console.aws.amazon.com/iam/home?#/security_credential) 
+No terminal digite aws configure e insira as informações obtidas (O ID da chave de acesso da AWS e a chave de acesso secreta). Para a região insira `us-east-1` e para o formato de saída defina `json`.
 
 2. Mudando para o diretório do exemplo **cl_hello_world** 
 
