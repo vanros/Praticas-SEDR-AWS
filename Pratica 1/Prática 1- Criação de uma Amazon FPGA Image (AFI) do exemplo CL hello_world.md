@@ -67,19 +67,34 @@ Antes de iniciar uma instância EC2 é necessário fazer algumas configurações
 1. Criar e conectar uma instância t2.2xlarge com o Ambiente de desenvolvimento **FPGA Developer AMI.**
 
     1. Acesse https://console.aws.amazon.com .  Você deve estar logado em sua conta Amazon.
+    
     2. No canto superior direito, escolha a região **Us East (N. Vírginia)**.
+    
     3. Clique em **EC2**.
+    
     4. No menu do canto esquerdo, clique em **instances**.
+    
     5. Na tela de Instâncias, clique em **Launch Instance**.
+    
     6. No primeiro passo, você deve escolher a **AMI da instância**. Clique em **Aws Marketplace**.
+    
     7. Na barra de procura, digite **FPGA Developer AMI** e clique em **select** e depois clique em **continue**. 
+    
     8. Em **Choose Instance Type**, escolha **t2.2xlarge**.
-    9. Na aba **Configure Security Group**, clique em **Select an existing security group** e escolha aquele criado na parte 1.
+    
+    9. Na aba **Configure Security Group**, clique em **Select an existing security group** e escolha aquele criado na 
+    parte 1.
+    
     10. Finalmente, clique em **Review and Launch** e depois clique em **Launch**.
+    
     11. Em **Choose an Existing Key Pair**, escolha aquela criada na parte 1, selecione o checkbox para aceitar as permissões e clique em **Launch Instances**.
+    
     12. Para verificar o estado da instância clique em **View Instances**.
+    
     13. Verifique se a instância passou suas verificações de status, ou seja, a informação do status é **2/2 checks pass**. Você pode visualizar essas informações na coluna Status Checks na página Instances.
-    14. Para conectar a instância, no caso de usuários linux, selecione a instância e clique em conectar, siga os passos informando na janela que será aberta. Obs: No comando informado, substitua “root” por “centos”.
+    
+    14. Para conectar a instância, no caso de usuários linux, selecione a instância e clique em conectar, siga os passos informando na janela que será aberta. Obs: No comando informado, substitua **root** por **centos**.
+    
     15. Para conectar a instância, no caso de usuários do Windows, deve-se seguir esse tutorial http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/putty.html.
 
 
