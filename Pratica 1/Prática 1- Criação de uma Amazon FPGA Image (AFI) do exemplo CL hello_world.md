@@ -50,7 +50,7 @@ Antes de iniciar uma instância EC2 é necessário fazer algumas configurações
 
    3. Na tela seguinte, adicione o nome do Security Group. Em seguida, adicione a descrição. Na guia **Inbound**, crie as regras mostradas na imagem abaixo. Escolha **Add Rule** para cada nova regra e, em seguida, clique em **Create**. 
         
-         ![image alt text](image_4.png)
+         ![image alt text](image_4.jpeg)
      
      
    4. No menu, em  **NETWORK E SECURITY**  selecione a opção **Key Pairs**. Clique em **Create Key Pair**.
