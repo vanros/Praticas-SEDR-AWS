@@ -176,7 +176,9 @@ $ aws ec2 create-fpga-image \
 ```
 Caso tenha dúvida na descrição do comando, verifique o exemplo abaixo:
 
-`` aws ec2 create-fpga-image --region us-east-1 --name teste-pratica1 --description afi-para-testar-pratica1 --input-storage-location Bucket=teste-pratica1,Key=teste-pratica1/18_04_19-175625.Developer_CL.tar --logs-storage-location Bucket=teste-pratica1,Key=teste-pratica1-log/LOGS_FILES_GO_HERE.txt --client-token teste  ``
+``bash 
+aws ec2 create-fpga-image --region us-east-1 --name teste-pratica1 --description afi-para-testar-pratica1 --input-storage-location Bucket=teste-pratica1,Key=teste-pratica1/18_04_19-175625.Developer_CL.tar --logs-storage-location Bucket=teste-pratica1,Key=teste-pratica1-log/LOGS_FILES_GO_HERE.txt --client-token teste 
+``
 
 
 A saída desse comando é composta dois identificadores referentes a AFI criada:
