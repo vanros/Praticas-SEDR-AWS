@@ -45,7 +45,7 @@ Neste exemplo, o registrador Virtual LED é usado para direcionar o sinal do LED
 
 2. A AWS CLI já foi instalada previamente nos PCs do laboratório, mas para começar a usá-la é necessário fazer a configuração. Para uso geral, o comando `aws configure` é a maneira mais rápida de configurar a AWS CLI.	
 
-	A AWS CLI solicitará algumas informações de segurança, dentre elas o ID da chave de acesso da AWS e a chave de acesso secreta da AWS, que são  credenciais da sua conta. Para criá-las acesse a página [https://console.aws.amazon.com/iam/home#/home](https://console.aws.amazon.com/iam/home#/home), clique em Users e crie um novo usuário com permissões de Admin. Obtenha as informações de Acess Key ID e secret Acess Key. 
+	A AWS CLI solicitará algumas informações de segurança, dentre elas o ID da chave de acesso da AWS e a chave de acesso secreta da AWS, que são  credenciais da sua conta. Para criá-las acesse a página [https://console.aws.amazon.com/iam/home#/home](https://console.aws.amazon.com/iam/home#/home), clique em Users e crie um novo usuário com permissões de Admin. Obtenha as informações de Acess Key ID e secret Acess Key. Guarde-as para usá-las posteriormente.
 
 	No terminal digite ``` aws configure ``` e insira as informações obtidas (O ID da chave de acesso da AWS e a chave de acesso secreta). Para a região insira ``` us-east-1``` e para o formato de saída defina ```json```.
 
