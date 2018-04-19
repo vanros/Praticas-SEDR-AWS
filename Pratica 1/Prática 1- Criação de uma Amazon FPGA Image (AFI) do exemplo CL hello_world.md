@@ -204,9 +204,9 @@ Após a conclusão da geração da AFI, a AWS colocará os logs na localização
 
 
 
-**Parte 3 - Carregar e testar uma AFI registrada em uma instância F1**
+**Parte 4 - Carregar e testar uma AFI registrada em uma instância F1**
 
-Para realizar os próximos passos, será necessário iniciar uma instância F1. Para isso, siga os procedimentos da  Parte 2 e  substitua o parâmetro do tipo de instância para ```--instance-type f1.2xlarge```.
+Para realizar os próximos passos, será necessário iniciar uma instância F1. Para isso, siga os procedimentos da  Parte 2 e  substitua o tipo de instância para ```--instance-type f1.2xlarge```.
 
 5. Configuração de ferramentas de gerenciamento AWS FPGA
 
@@ -219,13 +219,10 @@ $ source sdk_setup.sh
 ```
  	
 
-Configure as credenciais do AWS Cli como no item 2 da parte 1.
+Configure as credenciais do AWS Cli como no item 1 da parte 3.
 ```bash
 $ aws configure         # Setar suas credenciais 
 ```
-
-OBS: suas credenciais podem ser encontradas na página [https://console.aws.amazon.com/iam/home?#/security_credential](https://console.aws.amazon.com/iam/home?#/security_credential).
-
  
 
 6. Carregar a AFI
