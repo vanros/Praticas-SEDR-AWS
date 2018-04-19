@@ -93,7 +93,19 @@ aws ec2 describe-instances --instance-ids "i-0787e4282810ef9cf" --query 'Reserva
 ```
 
 
-3. Para se conectar à instância, use o endereço de IP público e a chave privada. Para isso, entre no diretório em que a key pair foi guardada e utilize o seguinte comando, substituindo o IP público pelo obtido na etapa anterior:
+3. Para se conectar à instância, use
+Para criar a AFI use o seguinte comando: Obs: O valor do parâmetro token, no comando, deve ser atribuído por você.
+
+$ aws ec2 create-fpga-image \
+        --region <region> \
+        --name <afi-name> \
+        --description <afi-description> \
+        --input-storage-location Bucket=<dcp-bucket-name>,Key=<path-to-tarball> \
+        --logs-storage-location Bucket=<logs-bucket-name>,Key=<path-to-logs> \
+	[ --client-token <value> ] 
+Caso tenha dúvida na descrição do comando, verifique o exemplo abaixo:
+
+bash aws ec2 create-fpga-image --region us-east-1 --name teste-pratica1 --description afi-para-testar-pratica1 --input-storage-location Bucket=teste-pratica1,Key=teste-pratica1/18_04_19-175625.Developer_CL.tar  o endereço de IP público e a chave privada. Para isso, entre no diretório em que a key pair foi guardada e utilize o seguinte comando, substituindo o IP público pelo obtido na etapa anterior:
 ```bash
 ssh -i <KeyPair-name>.pem centos@54.183.22.255
 ```
@@ -176,9 +188,9 @@ $ aws ec2 create-fpga-image \
 ```
 Caso tenha dúvida na descrição do comando, verifique o exemplo abaixo:
 
-``bash 
+```bash 
 aws ec2 create-fpga-image --region us-east-1 --name teste-pratica1 --description afi-para-testar-pratica1 --input-storage-location Bucket=teste-pratica1,Key=teste-pratica1/18_04_19-175625.Developer_CL.tar --logs-storage-location Bucket=teste-pratica1,Key=teste-pratica1-log/LOGS_FILES_GO_HERE.txt --client-token teste 
-``
+```
 
 
 A saída desse comando é composta dois identificadores referentes a AFI criada:
