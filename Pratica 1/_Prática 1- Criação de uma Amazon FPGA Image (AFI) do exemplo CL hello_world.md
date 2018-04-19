@@ -93,7 +93,7 @@ aws ec2 describe-instances --instance-ids "i-0787e4282810ef9cf" --query 'Reserva
 ```
 
 
-3. Para se conectar à instância, use o endereço de IP público e chave privada. Para isso, entre no diretório em que a key pair foi guardada e utilize o seguinte comando, substituindo o IP público pelo obtido na etapa anterior:
+3. Para se conectar à instância, use o endereço de IP público e a chave privada. Para isso, entre no diretório em que a key pair foi guardada e utilize o seguinte comando, substituindo o IP público pelo obtido na etapa anterior:
 ```bash
 ssh -i <KeyPair-name>.pem centos@54.183.22.255
 ```
@@ -112,7 +112,7 @@ $ source hdk_setup.sh
 
 Obs: Ao usar a FPGA developer AMI a variável AWS_FPGA_REPO_DIR corresponde ao diretório /home/centos/src/project_data/aws-fpga.
 
-Configure o AWS CLI (`aws configure`) inserindo as mesmas informações usadas na parte 1.
+Configure o AWS CLI (`aws configure`) inserindo as mesmas informações usadas na parte 1 item 2.
 
 OBS: suas credenciais podem ser encontradas na página [https://console.aws.amazon.com/iam/home?#/security_credential](https://console.aws.amazon.com/iam/home?#/security_credential) 
 
