@@ -151,7 +151,7 @@ Para fazer o upload do arquivo tarball para S3, podem ser usadas qualquer uma da
 $ aws s3 mb s3://<bucket-name> --region <region>   # Criar um  bucket no S3 (Escolha um nome único para o bucket)
 $ aws s3 mb s3://<bucket-name>/<dcp-folder-name>/   # Criar uma pasta para seu arquivo tarball 
 
-$ aws s3 cp $CL_DIR/build/checkpoints/to_aws/*.Developer_CL.tar \ s3://<bucket-name>/<dcp-folder-name>/ # Fazer o upload do arquivo para o S3        
+$ aws s3 cp $CL_DIR/build/checkpoints/to_aws/*.Developer_CL.tar  s3://<bucket-name>/<dcp-folder-name>/ # Fazer o upload do arquivo para o S3        
 
 $ aws s3 mb s3://<bucket-name>/<logs-folder-name>/  # Criar uma pasta para guardar seu arquivo de log
 $ touch LOGS_FILES_GO_HERE.txt                     # Criar um arquivo temporário (temp file)
