@@ -83,19 +83,19 @@ $ chmod 400 <KeyPair-name>.pem
 
     1. Execute o comando a seguir, substituindo o ID do security group e o nome da key pair, pelos obtidos na parte 1. 
 ```bash
- $ aws ec2 run-instances --image-id ami-702a8b0f --security-group-ids sg-6fc17419 --count 1 --instance-type t2.2xlarge --key-name <KeyPair-name> --query 'Instances[0].InstanceId'
+ $ aws ec2 run-instances --image-id ami-702a8b0f --security-group-ids <sg-6fc17419> --count 1 --instance-type t2.2xlarge --key-name <KeyPair-name> --query 'Instances[0].InstanceId'
 ```
    Esse comando retornará o ID da instância, que deverá ser guardado para uso posterior.
 
 2. A inicialização da instância pode levar alguns instantes. Assim que a instância estiver em execução, o endereço de IP público que será usado para se conectar à instância será recuperado com o comando a seguir. Substitua o ID da instância pelo obtido na etapa anterior.
 ```bash
-aws ec2 describe-instances --instance-ids "i-0787e4282810ef9cf" --query 'Reservations[0].Instances[0].PublicIpAddress'
+aws ec2 describe-instances --instance-ids <"i-0787e4282810ef9cf"> --query 'Reservations[0].Instances[0].PublicIpAddress'
 ```
 
 
 3. Para se conectar à instância, use o endereço de IP público e a chave privada. Para isso, entre no diretório em que a key pair foi guardada e utilize o seguinte comando, substituindo o IP público pelo obtido na etapa anterior:
 ```bash
-ssh -i <KeyPair-name>.pem centos@54.183.22.255
+ssh -i <KeyPair-name>.pem centos@<54.183.22.255>
 ```
 
 
