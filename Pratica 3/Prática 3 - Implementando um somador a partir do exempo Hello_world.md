@@ -61,7 +61,7 @@ $ git config --global user.email johndoe@example.com
 	  Esse processo define que no sinal do reset o wire ``hello_world_q`` receberá o valor de ``32’h0000_0000`` (será zerado), quando houver o sinal de leitura e os dados forem do registrador ``HELLO_WORLD_REG_ADDR``, então o wire ``hello_world_q`` receberá a informação contida  no registrador. Caso não ocorra nenhuma dessas duas situações , o wire ``hello_world_q`` apenas manterá seu valor anterior.  E finalmente, o valor atibuído ao wire ``hello_world_q_byte_swapped`` será o dado reorganizado, de forma que os bits menos significativos passam a ser mais significativos e vice-versa.
 
  
- 	2. A partir dessa implementação, insira o trecho de código que define o processo da soma de dois valores de entrada.
+ 	2. A partir dessa implementação, insira (a partir da linha 283) o trecho de código que define o processo da soma de dois valores de entrada.
 
 4. Feita as modificações no design, precisamos agora modificar o software para realizarmos a escrita dos valores que serão somados e a leitura do resultado.
 
