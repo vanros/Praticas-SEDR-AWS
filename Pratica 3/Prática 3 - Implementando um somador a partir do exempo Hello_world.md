@@ -20,26 +20,33 @@ Nesta prática vamos implementar uma soma de dois valores, a partir do exemplo h
 
 **Parte 1:**
 
-1. Faça um Fork do repositório [https://github.com/aws/aws-fpga.git](https://github.com/aws/aws-fpga.git) para um repositório da sua conta do Github
+1. Faça um `Fork` do repositório [https://github.com/aws/aws-fpga.git](https://github.com/aws/aws-fpga.git) para um repositório da sua conta do Github. Após isso, faça um `clone` desse repositório no seu computador local.
+
+OBS: Caso seja preciso configurar o git na sua máquina,  utilize os comandos abaixo para a configuração inicial.
+```bash 
+$ git config --global user.name "John Doe"
+$ git config --global user.email johndoe@example.com
+```
+   Após isso, gere a chave pública SSH, utilizando o procedimento descrito na [documentação](https://git-scm.com/book/pt-br/v1/Git-no-Servidor-Gerando-Sua-Chave-P%C3%BAblica-SSH) do git, em seguida adicione a chave gerada na tela de SSH Keys da interface do github.
 
 2. Para definir os endereços dos registradores no lado do hardware:
 
-    1. Abra o arquivo ```/hdk/cl/examples/common/design/cl_common_defines.vh```
+      i. Abra o arquivo ```hdk/cl/examples/common/design/cl_common_defines.vh```
 
-    2. Neste arquivo estão definidos os endereços dos registradores utilizados no exemplo hello_world da seguinte maneira:
+      ii. Neste arquivo estão definidos os endereços dos registradores utilizados no exemplo hello_world da seguinte maneira:
 ```bash 
 `define HELLO_WORLD_REG_ADDR           32'h0000_0500
 `define VLED_REG_ADDR                  32'h0000_0504
 ```
 
-   3. Adicione os três registradores necessários para a implementação do somador, nos endereços seguintes.
+   iii. Adicione os três registradores necessários para a implementação do somador, nos endereços seguintes.
    ```bash 
-`define X_REG_ADDR                   32'h0000_0508
+`define X_REG_ADDR                       32'h0000_0508
 `define Y_REG_ADDR                       32'h0000_050C
 `define Z_REG_ADDR                       32'h0000_0510
 ```
    
-   
+  
 3. Feito isso, teremos que modificar o arquivo de implementação do design. Abra o arquivo ```/hdk/cl/examples/cl_hello_world/design/cl_hello_world.sv``` 
 
 	1. Perceba que a partir da linha 49 estão definidos os wires. Adicione os wires necessários.
