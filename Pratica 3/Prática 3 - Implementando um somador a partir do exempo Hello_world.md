@@ -47,7 +47,7 @@ $ git config --global user.email johndoe@example.com
      
 3. Feito isso, teremos que modificar o arquivo de implementação do design. Abra o arquivo ```hdk/cl/examples/cl_hello_world/design/cl_hello_world.sv``` 
 
-	1. Perceba que a partir da linha 49 estão definidos os wires. Adicione os wires necessários.
+	1. Perceba que a partir da linha 49 estão definidos os wires. Adicione os wires necessários, com tamanhos de 32 bits.
 
 	A partir da linha 243 até a linha 263 está implementado o processo de resposta de leitura. Perceba que quando a leitura realizada é do registrador ``HELLO_WORLD_REG_ADD``, o valor a ser escrito será ``hello_world_q_byte_swapped[31:0]``.
 
