@@ -30,16 +30,13 @@ $ git config --global user.email johndoe@example.com
    Após isso, gere a chave pública SSH, utilizando o procedimento descrito na [documentação](https://git-scm.com/book/pt-br/v1/Git-no-Servidor-Gerando-Sua-Chave-P%C3%BAblica-SSH) do git, em seguida adicione a chave gerada na tela de SSH Keys da interface do github.
 
 2. Para definir os endereços dos registradores no lado do hardware:
-
-      i. Abra o arquivo ```hdk/cl/examples/common/design/cl_common_defines.vh```
-
-      ii. Neste arquivo estão definidos os endereços dos registradores utilizados no exemplo hello_world da seguinte maneira:
-```bash 
+	i. Abra o arquivo ```hdk/cl/examples/common/design/cl_common_defines.vh```
+	ii. Neste arquivo estão definidos os endereços dos registradores utilizados no exemplo hello_world da seguinte maneira:
+	```bash 
 `define HELLO_WORLD_REG_ADDR           32'h0000_0500
 `define VLED_REG_ADDR                  32'h0000_0504
 ```
-
-   iii. Adicione os três registradores necessários para a implementação do somador, nos endereços seguintes.
+	iii. Adicione os três registradores necessários para a implementação do somador, nos endereços seguintes.
    ```bash 
 `define X_REG_ADDR                       32'h0000_0508
 `define Y_REG_ADDR                       32'h0000_050C
