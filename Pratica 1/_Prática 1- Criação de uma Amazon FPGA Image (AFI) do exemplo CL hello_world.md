@@ -89,7 +89,7 @@ $ chmod 400 <KeyPair-name>.pem
 
 2. A inicialização da instância pode levar alguns instantes. Assim que a instância estiver em execução, o endereço de IP público que será usado para se conectar à instância será recuperado com o comando a seguir. Substitua o ID da instância pelo obtido na etapa anterior.
 ```bash
-aws ec2 describe-instances --instance-ids <"i-0787e4282810ef9cf"> --query 'Reservations[0].Instances[0].PublicIpAddress'
+$ aws ec2 describe-instances --instance-ids <"i-0787e4282810ef9cf"> --query 'Reservations[0].Instances[0].PublicIpAddress'
 ```
 
 
