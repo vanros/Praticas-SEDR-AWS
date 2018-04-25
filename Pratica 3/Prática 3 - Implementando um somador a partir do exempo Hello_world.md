@@ -30,6 +30,7 @@ $ git config --global user.email johndoe@example.com
    Após isso, gere a chave pública SSH, utilizando o procedimento descrito na [documentação](https://git-scm.com/book/pt-br/v1/Git-no-Servidor-Gerando-Sua-Chave-P%C3%BAblica-SSH) do git, em seguida adicione a chave gerada na tela de SSH Keys da interface do github.
 
 2. Para definir os endereços dos registradores no lado do hardware:
+  
    i. Abra o arquivo ```hdk/cl/examples/common/design/cl_common_defines.vh```
 	
    ii. Neste arquivo estão definidos os endereços dos registradores utilizados no exemplo hello_world da seguinte maneira:
