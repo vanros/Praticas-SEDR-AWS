@@ -40,7 +40,7 @@ $ git config --global user.email johndoe@example.com
 	```
      iii. Adicione os três registradores necessários para a implementação do somador, nos endereços seguintes.
 
-  	 ```bash 
+  	      ```bash 
 		`define X_REG_ADDR                       32'h0000_0508
 		`define Y_REG_ADDR                       32'h0000_050C
 		`define Z_REG_ADDR                       32'h0000_0510
