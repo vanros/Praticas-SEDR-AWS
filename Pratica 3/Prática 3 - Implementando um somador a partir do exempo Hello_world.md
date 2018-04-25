@@ -67,7 +67,7 @@ $ git config --global user.email johndoe@example.com
 
     1. Abra o arquivo ``hdk/cl/examples/cl_hello_world/software/runtime/test_hello_world.c``
 
-    2. Primeiro, é preciso declarar os registradores e seus endereços, da mesma forma que foram declarados no arquivo ``cl_common_defines.vh``.  Nas linhas 40 e 41 adicione a declaração dos registradores.
+    2. Primeiro, é preciso declarar os registradores e seus endereços, utilizando os mesmos nomes dos que foram declarados no arquivo ``cl_common_defines.vh``.  Nas linhas 40 e 41 adicione a declaração dos registradores.
 	
 
     3. Perceba que entre as linhas 236 e 256 a escrita e a leitura do registrador  ```HELLO_WORLD_REG_ADDR```  foram   implementadas, usando as funções ``fpga_pci_poke`` e ``fpga_pci_peek``. Com base nesse código, vamos utilizar a função ``fpga_pci_poke`` para escrever os dois valores de entrada nos registrados definidos para armazenar os dados de entrada, ``X_REG_ADDR UINT64_C(0x508)`` e ``Y_REG_ADDR UINT64_C(0x50C)``, e a função ``fpga_pci_peek`` para ler o resultado da soma que estará armazenada no registrador definido para armazenar o dado de saída ``Z_REG_ADDR UINT64_C(0x510)``. Para isso, abaixo da função descrita acima (linha 257), adicione o seguinte código:
