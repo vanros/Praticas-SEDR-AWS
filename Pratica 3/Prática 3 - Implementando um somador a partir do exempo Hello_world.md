@@ -2,7 +2,7 @@ DETI/UFC - Cursos de Eng. de Computação e Eng. de Telecomunicações
 
 Elaborada por Jardel Silveira e Vanessa Rodrigues 
 
-# **Executando o exemplo CL hello_world com a GUI Vivado**
+# ** Implementando um somador a partir do exempo Hello_world**
 
 **Descrição**
 
