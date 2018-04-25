@@ -45,7 +45,7 @@ $ git config --global user.email johndoe@example.com
      `define Z_REG_ADDR              32'h0000_0510
 	```
      
-3. Feito isso, teremos que modificar o arquivo de implementação do design. Abra o arquivo ```/hdk/cl/examples/cl_hello_world/design/cl_hello_world.sv``` 
+3. Feito isso, teremos que modificar o arquivo de implementação do design. Abra o arquivo ```hdk/cl/examples/cl_hello_world/design/cl_hello_world.sv``` 
 
 	1. Perceba que a partir da linha 49 estão definidos os wires. Adicione os wires necessários.
 
