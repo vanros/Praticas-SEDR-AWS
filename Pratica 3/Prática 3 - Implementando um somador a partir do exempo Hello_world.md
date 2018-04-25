@@ -93,7 +93,7 @@ $ git config --global user.email johndoe@example.com
 
     printf("Writing 0x%08x to Y register (0x%016lx)\n", y, Y_REG_ADDR);
 
-    rc = fpga_pci_poke(pci_bar_handle, Y_REG_ADDR, x);
+    rc = fpga_pci_poke(pci_bar_handle, Y_REG_ADDR, y);
 
     fail_on(rc, out, "Unable to write to the fpga !");
 
