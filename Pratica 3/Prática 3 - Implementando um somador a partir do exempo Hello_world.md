@@ -134,7 +134,7 @@ $ git config --global user.email johndoe@example.com
 
 5. Feito isso, atualize o seu repositório do github com as modificações realizadas (```commit + push```).
 
-6. Realize o mesmo procedimento descrito na [Prática 1- Criação de uma Amazon FPGA Image (AFI) do exemplo CL hello_world](https://github.com/vanros/Praticas-SEDR-AWS/blob/master/Pratica%201/_Pr%C3%A1tica%201-%20Cria%C3%A7%C3%A3o%20de%20uma%20Amazon%20FPGA%20Image%20(AFI)%20do%20exemplo%20CL%20hello_world.md). Porém, no passo de download do HDK e SDK (Parte 1- item 2) substitua a url do repositório da aws para a url do  repositório que foi realizado o fork do projeto e as modificações. Por exemplo:
+6. Realize o mesmo procedimento descrito na [Prática 1- Criação de uma Amazon FPGA Image (AFI) do exemplo CL hello_world](https://github.com/vanros/Praticas-SEDR-AWS/blob/master/Pratica%201/_Pr%C3%A1tica%201-%20Cria%C3%A7%C3%A3o%20de%20uma%20Amazon%20FPGA%20Image%20(AFI)%20do%20exemplo%20CL%20hello_world.md). Porém, no passo de download do HDK e SDK (Parte 3- item 1) substitua a url do repositório da aws para a url do  repositório que foi realizado o fork do projeto e as modificações. Por exemplo:
 ```bash
 git clone https://github.com/vanros/aws-fpga.git $AWS_FPGA_REPO_DIR
 ```
