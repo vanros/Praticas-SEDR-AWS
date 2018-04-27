@@ -12,7 +12,7 @@ Nesta prática vamos implementar uma soma de dois valores, a partir do exemplo h
 
 **Objetivos de Aprendizagem**
 
-* Instanciamento de registradores.
+* Instanciação de registradores.
 
 * Implementação  do somador no design.
 
