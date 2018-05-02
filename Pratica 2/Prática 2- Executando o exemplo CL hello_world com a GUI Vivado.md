@@ -134,7 +134,7 @@ $ export subsystem_vendor_id=0xFEDD
 ```TEST_NAME = test_null ```
 
 
-3. No TCL console, em ``Vivado Project``, copie e cole o seguinte comando para setar o path para criação do .so com o script test_hello_world.c. 
+3. No TCL console, copie e cole o seguinte comando para setar o path para criação do .so com o script test_hello_world.c. 
 
 ```bash
 set_property -name {xsim.compile.tcl.pre} -value $::aws::make_faas::_nsvars::script_dir/../../hlx_examples/build/RTL/cl_hello_world/verif/scripts/dpi_xsim.tcl -objects [get_filesets sim_1]
