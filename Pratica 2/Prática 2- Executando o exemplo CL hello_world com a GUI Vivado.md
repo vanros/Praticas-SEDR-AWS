@@ -131,7 +131,7 @@ $ export subsystem_vendor_id=0xFEDD
 ```TEST_NAME = test_null ```
 
 
-3. No TCL console, em ``Vivado Project``, copie e cole o seguinte comando para setar o path para criação do .so com o script test_hello_world.c. Caso esteja usando simuladores de terceiros, modifique o comando para combinar o simulador e o path para ``dpi.tcl`` em vez de  ``dpi_xsim.tcl``
+3. No TCL console, em ``Vivado Project``, copie e cole o seguinte comando para setar o path para criação do .so com o script test_hello_world.c. 
 
 ```bash
 set_property -name {xsim.compile.tcl.pre} -value $::aws::make_faas::_nsvars::script_dir/../../hlx_examples/build/RTL/cl_hello_world/verif/scripts/dpi_xsim.tcl -objects [get_filesets sim_1]
@@ -147,7 +147,7 @@ set_property -name {xsim.compile.tcl.pre} -value $::aws::make_faas::_nsvars::scr
 
 	
 
-As configurações podem ser diferentes dependendo do simulador. Certos simuladores de terceiros podem precisar que seja incluído um path explícito o diretório de design para projetos de exemplo RTL fornecidos como ``cl_hello_world`` e ``cl_dram_dma``. Para isso, na opção ``Verilog``, selecione a caixa ``...`` e clique no botão ``+`` sob ``Verilog Include Files Search Paths`` e selecione o path para o diretório ``cl/ cl_example/design``.
+
 
 **Parte 5: Implementando o arquivo Design/Tar**
 
