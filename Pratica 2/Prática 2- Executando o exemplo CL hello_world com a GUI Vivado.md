@@ -127,7 +127,7 @@ $ export subsystem_vendor_id=0xFEDD
 
 **Parte 4: Simulação DPI com test_hello_world.c**
 
-1. Em ```Project Manager```, clique com o botão direito em ``Simulation`` e selecione ``Simulation Settings``
+1. No navigator Flow, clique com o botão direito em ``Simulation`` e selecione ``Simulation Settings``
 
 2. Selecione a caixa … em Verilog options e modifique o valor de TEST_NAME para ```test_null```, para desativar o sv stimulus
 
@@ -151,6 +151,9 @@ set_property -name {xsim.compile.tcl.pre} -value $::aws::make_faas::_nsvars::scr
 	
 
 6. Execute a **Simulação** novamente.
+
+7. O teste executado foi o test_hello_world.c, que está no diretório
+``aws-fpga-master/hdk/cl/examples/cl_hello_world/software/verif_rtl/src/test_hello_world.c``.
 
 **Parte 5: Implementando o arquivo Design/Tar**
 
