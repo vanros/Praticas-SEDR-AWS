@@ -109,12 +109,15 @@ $ export subsystem_id=0x1D51
 
 $ export subsystem_vendor_id=0xFEDD
 ```
+**Criando Exemplo de Design**
 
 3. Mude para o diretório ```/home/centos/src/project_data/aws-fpga/hdk/cl/examples/hello_world_hlx```
 
 4. Execute o vivado usando o comando ```vivado```. Uma vez que a GUI tiver sido carregada, clique no console TCL
 
 5. Digite o comando ```aws::make_rtl -examples cl_hello_world``` para criar o exemplo ```hello_world_hlx```. O exemplo será gerado no diretório ```cl/examples/hello_world_hlx/example_projects```. O projeto do vivado será o arquivo ```hello_world.xpr``` contido na pasta examples_projects.
+
+**Simulação**
 
 6. Clique em ```Simulation->Run Simulation->Run Behavioral Simulation```
 
@@ -147,7 +150,7 @@ set_property -name {xsim.compile.tcl.pre} -value $::aws::make_faas::_nsvars::scr
 
 	
 
-
+6. Execute a **Simulação** novamente.
 
 **Parte 5: Implementando o arquivo Design/Tar**
 
