@@ -120,7 +120,7 @@ $ export subsystem_vendor_id=0xFEDD
 
 7. Adicione os sinais necessários para a simulação
 
-8. Digite o comando  ```-run all``` no TCL console
+8. Digite o comando  ```run all``` no TCL console
 
 **Parte 4: Simulação DPI com test_hello_world.c**
 
