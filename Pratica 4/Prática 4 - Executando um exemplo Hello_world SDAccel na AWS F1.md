@@ -22,11 +22,16 @@ As interfaces PCIS gravam dados ASCII no espaço de memória AXI BRAM e lêem es
 **Criando a estrututra de diretório e o Projeto Vivado**
   
   1. Entre no diretório `hdk/cl/examples`.
-  2. Crie um diretório em examples, como `hello_world_vivado`.
-  3. Inicie o Vivado usando o comando `vivado`.
-  4. Crie um projeto digitando, no console TCL, o comando `create_project -name hello_world`.
+  
+  2. Crie um diretório em examples, como `hello_world_vivado`.
+  
+  3. Inicie o Vivado usando o comando `vivado`.
+  
+  4. Crie um projeto digitando, no console TCL, o comando `create_project -name hello_world`.
+  
   5. Digite o seguinte comando, no console TCL, que altera as configurações do projeto para a AWS e cria o diagrama de blocos com o IP da AWS adicionado.
-  `aws::make_ipi`
+  
+  `aws::make_ipi`
   
 **Configurando o Diagrama de Blocos**
    
