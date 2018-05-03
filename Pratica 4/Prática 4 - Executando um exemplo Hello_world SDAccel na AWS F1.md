@@ -2,169 +2,94 @@ DETI/UFC - Cursos de Eng. de Computação e Eng. de Telecomunicações
 
 Elaborada por Jardel Silveira e Vanessa Rodrigues
 
-# **Executando um exemplo Hello World SDAccel na AWS F1**
+# **Executando um  exemplo do IP Integrator com AXI GPIO e AXI BRAM (hello_world)**
 
 **Descrição**
 
-Nesta prática vamos executar o exemplo Hello World disponível no [repositório de exemplo SDAccel](https://github.com/Xilinx/SDAccel_Examples), que contém uma coleção de exemplos voltados para o ensino das melhores práticas do usuário sobre como usar diferentes recursos do SDAccel. A execução será realizada configurando o ambiente do SDAccel na instância f1 e gerando os arquivos Host application,
+Esta prática aborda o procedimento para a configuração do IP AWS com a interface BAR1 (AXI4-Lite Master Interface) e a interface PCIS (AXI4 Master). Neste exemplo, o IP AXI GPIO é adicionado ao design para controlar o VLED e o IP AXI BRAM é adicionado ao design da interface PCIS (AXI4 Master).
 
-AWS FPGA binary, Amazon FPGA Image (AFI) necessários para a sintetização do projeto. O arquivo binário, AWS FPGA binary, será lido pelo Host application para determinar a AFI que deve ser carregada na FPGA.
+O VLED é definido com base na gravação do valor 0xAAAA no registrador slave GPIO AXI (0x0) para conduzir o VLED. O valor é lido usando a task Verilog tb.get_virtual_led ou fpga-get-virtual-led na F1. 
 
-**Objetivos de Aprendizagem** 
+As interfaces PCIS gravam dados ASCII no espaço de memória AXI BRAM e lêem esses endereços para imprimir “Hello World!” Na simulação ou na F1.
 
-**Parte 1: Criação de uma instância EC2 F1 a partir do AWS console.**
+**Criando a estrututra de diretório e o Projeto Vivado**
+  
+  1. Entre no diretório `hdk/cl/examples`.
+  2. Crie um diretório em examples, como `hello_world_vivado`.
+  3. Inicie o Vivado usando o comando `vivado`.
+  4. Crie um projeto digitando, no console TCL, o comando `create_project -name hello_world`.
+  5. Digite o seguinte comando, no console TCL, que altera as configurações do projeto para a AWS e cria o diagrama de blocos com o IP da AWS adicionado.
+  `aws::make_ipi`
+  
+**Configurando o Diagrama de Blocos**
+   
+   **Configurando o IP AWS**
+ 
+ 1. Dê um clique duplo sobre o bloco IP AWS. Em Interfaces IP, selecione Use BAR1 Register Interface (M_AXI_BAR1), Use PCI Slave-access Interface (M_AXI_PCIS), e Use Auxiliary (non-AXI) Signal Ports. Isso habilita a interface AXI4-Lite Master (para AXI GPIO), a interface AXI4 Master (para AXI BRAM) e os inputs/outputs VLED/VDIP. Após isso, selecione `OK`. 
+ 
+ O IP AWS é configurado para um clock usando o Grupo-A com o padrão clock recipe, que configura um clock de 125 MHz.
+ 
+ **Adicionando/Configurando o AXI GPIO**
+  
+  1. Clique com o botão direito na tela e selecione ``Add IP``. Na barra de pesquisa, digite AXI GPIO e dê um clique duplo em AXI GPIO.
+  2. Dê um clique duplo  sobre o bloco  `axi_gpio_0` para configurar o IP.
+  3. Na seção GPIO, selecione `All Outputs` e defina GPIO Width para `16`. Após isso, selecione `OK`.
+  
 
-1. Inicie e conecte-se a uma instância EC2 f1.2xlarge, seguindo os procedimentos descritos nas partes 1 e 2 da [prática Criação de uma Amazon FPGA Image (AFI) do exemplo CL hello_world](https://github.com/vanros/Praticas-SEDR-AWS/blob/master/Pratica%201/_Pr%C3%A1tica%201-%20Cria%C3%A7%C3%A3o%20de%20uma%20Amazon%20FPGA%20Image%20(AFI)%20do%20exemplo%20CL%20hello_world.md), alterando apenas o nome da região para  ```us-west-2``` no item 2 da parte 1.
+**Adicionando/Configurando o AXI BRAM**
+  
+  1. Clique com o botão direito na tela e selecione ``Add IP``. Na barra de pesquisa, digite AXI BRAM e dê um clique duplo em AXI BRAM Controller.
+  2. Dê um clique duplo  sobre o bloco  `axi_bram_ctrl_0` para configurar o IP.
+  3. Defina Data Width para `512` e clique em OK. Isso é para corresponder à largura de dados de 512 bits da interface principal do PCIS AXI4.
+  
+  
+ **Conectando o Design**
+ 
+   1. Selecione `Run Connection Automation `  no top do block diagram na seção verde destacada.
+   2. Selecione `axi_bram_ctrl_0/BRAM_PORTA ` e depois `BRAM_PORTB` e selecione `Auto`. 
+   3. Para ` axi_bram_ctrl_0/S_AXI`, verifique se `Master` está definido para `/f1_inst/M_AXI_PCIS` e as outras opções para `Auto`.
+   4. Selecione `axi_gpio_0/S_AXI`. verifique se `Master` está definido para `/f1_inst/M_AXI_BAR1` e as outras opções para `Auto`. O `axi_gpio_0/GPIO` será configurado manualmente após a execução da automação de conexão. Após isso, selecione `OK`
+   5. Expanda axi_gpio_0/GPIO selecionando o `+`. Conecte `gpio_io_o [15: 0]` no bloco `f1_inst` e faça uma conexão com `status_vled [15: 0]`. Após isso, clique em `Run Connection Automation`.
+  
+  
+  **Tab Adress Editor*
+  
+  1. Selecione a Tab `Adress Editor` no topo do block diagram.
+  2. Por padrão, a instância AXI BRAM é configurado com espaço de endereço de 64K, iniciando no endereço 0xC0000000. O espaço de endereço pode ser aumentado ou diminuído selecionando um valor diferente para Intervalo.
+  3. A instância AXI GPIO tem um espaço de endereço de 4K, que é refletido no endereçamento para M_AXI_BAR1 que começa em 0x00000000.
+ 
+ **Salvando e Validando o Design**
+ 
+ 1. Salve o block diagram e selecione `Tools->Validate Design`.
+ 2. Após a validação ser bem sucedida, selecione `OK`.
+ 
+ **Adicionando simulation sources do exemplo de design (cl_hello_world)**
+ 
+ 1. Na tab `Project Manager`, em Flow Navigator, selecione `Add Sources -> Add or create simulation sources -> Select Add Files`.
+ 2. Adicione o arquivo `hdk/common/shell_stable/hlx/hlx_examples/build/IPI/hello_world/verif/test_cl.sv`.
+ 3. Desmarque a opção `Scan` e adicione `RTL includes files into project`.
+ 4. Desmarque a opção `Copy sources into project to link to the source files`.
+ 5. Selecione `dd sources from subdirectories`.
+ 6. Selecione `Include all design sources for simulation`. Após isso, clique em `Finish`.
+ 7. Clique com o botão direito em `SIMULATION` em `Project Manager` e selecione `Simulation Settings`.
+ 8. Em `Verilog options`, selecione a caixa `...` e mude os seguintes nomes (Possivelmente já estará configurado).
+ ```bash
+ CL_NAME=cl_top
 
-
-**Parte 2: Configurando a instância para trabalhar com SDAccel**
-
-1. Configure o AWS CLI inserindo as mesmas credenciais (AWS Access Key Id e AWS Secret Access key) utilizadas na Parte 1
-```bash
-$ aws configure
-AWS Access Key ID [None]: 
-AWS Secret Access Key [None]: 
-Default region name [None]: # <use a região us-west-2>
-Default output format [None]: # json
-```
-	
-
-2. ``Clone`` o repositório que contém os arquivos necessários para executar o SDAccel e , em seguida, compile e instale os drivers necessários. Para isso, execute o seguintes comandos
-```bash
-$ git clone https://github.com/aws/aws-fpga.git $AWS_FPGA_REPO_DIR  
-$ cd $AWS_FPGA_REPO_DIR                                         
-$ source sdaccel_setup.sh
-```
-
-**Parte 3:  Executando o exemplo Hello World do SDAccel na AWS F1**
-
-1.   Execute os seguintes comandos para configurar o ambiente SDAccel
-
-```bash
-$ cd $AWS_FPGA_REPO_DIR  
-$ source sdaccel_setup.sh                                         
-$ source $XILINX_SDX/settings64.sh
-```
-
-
-2. Gere e execute Os fluxos de emulação SDAccel, que permitem o teste e debug, por exemplo, da aplicação antes da implantação na F1. 
-
-Para isso, execute o fluxo de emulação SW para o exemplo hello world SDAccel
-```bash
-$ cd $SDACCEL_DIR/examples/xilinx/getting_started/host/helloworld_ocl/  
-$ make clean                                         
-$ make check TARGETS=sw_emu DEVICES=$AWS_PLATFORM all
-```
-
-Em seguida, execute o fluxo de emulação HW para o exemplo hello world SDAccel
-```bash
-$ cd $SDACCEL_DIR/examples/xilinx/getting_started/host/helloworld_ocl/  
-$ make clean                                         
-$ make check TARGETS=hw_emu DEVICES=$AWS_PLATFORM all
-```
-
-3. Os seguintes arquivos devem ser gerados para executar na instância f1:
-
-    1. Host application
-
-    2. AWS FPGA binary
-
-    3. Amazon FPGA Image (AFI)
-
-	Gerar esses arquivos é um processo de duas etapas. Na primeira etapa o SDAccel é usado para gerar o Host application e o Xilinx FPGA binary. Na segunda etapa o script create_sdaccel_afi.sh é usado para criar a AFI e o arquivo AWS FPGA binary a partir do  Xilinx FPGA binary.
-
-	Antes  da realização desse processo é necessário criar um bucket com uma pasta para guardar um DCP que será gerado e uma pasta de log para guardar o arquivo de log. Para isso, execute os comandos abaixo:
-
-```bash
-$ aws s3 mb s3://<bucket-name> --region <region>   # Criar um S3 bucket (Escolha um nome único para o bucket)
-$ aws s3 mb s3://<bucket-name>/<dcp-folder-name>/   # Criar uma pasta para o DCP
-aws s3 mb s3://<bucket-name>/<logs-folder-name>/ # Criar uma pasta para guardar seu arquivo de log
-```
-
-* Geração  do host application e do *.xclbin (Xillinx FPGA binary file)
-
-```bash
-$ cd $SDACCEL_DIR/examples/xilinx/getting_started/host/helloworld_ocl/
-$ make clean                                         
-$ make TARGETS=hw DEVICES=$AWS_PLATFORM all
-```
-
-* Criação do AWS FPGA binary e AFI a partir do *.xclbin (Xilinx FPGA binary file)
-```bash
-$ cd xclbin $SDACCEL_DIR/tools/create_sdaccel_afi.sh \
-		-xclbin=vector_addition.hw.xilinx_aws-vu9p-f1_4ddr-xpr-2pr_4_0.xclbin \
-		-s3_bucket=<bucket-name> \
-		-s3_dcp_key=<dcp-folder-name> \
-		-s3_logs_key=<logs-folder-name>
-```
-
-O script create_sdaccel_afi.sh realiza os seguintes processos:
-
-* Inicia um processo em segundo plano para criar a AFI
-
-* Gera um arquivo  _afi_id.txt que contém a FPGA Image Identifier (ou AFI ID) e o FPGA Global Image Identifier (ou AGFI ID) da AFI gerado
-
-* Cria o arquivo AWS FPGA binary *.shclbin que precisará ser lido pelo Host application para determinar qual AFI deve ser carregada na FPGA.
-
-4. O processo de criação do AFI iniciado em background não é instantâneo. É preciso garantir que o processo seja concluído com sucesso antes de poder ser executado na instância F1. 
-
-5. Observe os valores das IDs AFI abrindo o arquivo _afi_id.txt
-```bash 
-cat *afi_id.txt
-```
-	
-
-6. Use a describe-fpga-images API para verificar o status do processo de geração da AFI
-```bash
-aws ec2 describe-fpga-images --fpga-image-ids <AFI ID>
-```
-
-
-
-Quando a criação do AFI for concluída com sucesso, a saída deve conter:
-
-``...
-	"State": {
-  	  "Code": "available"
-	 },
-	...``
-
-Aguarde até que o AFI fique disponível antes de continuar a executar a aplicação na instância F1.
-
-7. Execute o Host Application utilizando o seguinte comando
-```bash
-$ cd ..
-$ source /opt/Xilinx/SDx/2017.1.rte.4ddr/setup.sh 
-$ ./helloworld 
-```
-	
-8. O exemplo de aplicação exibirá as seguintes mensagens: 
-
-	![image alt text](image_0.png)
-
-**Parte 4: Fechando a Sessão**
-
-Depois de terminar sua sessão, você pode "Parar" ou "Terminar" sua instância. Se você 'Terminar' a instância, seu volume raiz será excluído. Você precisará criar e configurar uma nova instância na próxima vez que precisar trabalhar na F1. Se você parar a instância, o volume do root é preservado e a instância interrompida pode ser reiniciada mais tarde, não precisando mais passar por etapas de configuração. A AWS não cobra por instâncias interrompidas, mas pode cobrar por qualquer volume EBS anexado à instância.
-
-* Feche a sessão remota (exit)
-
-* Retorne para o EC2 Dashboard: [https://console.aws.amazon.com/ec2](https://console.aws.amazon.com/ec2)
-
-* Selecione **Instances **no menu lateral esquerdo.
-
-* Selecione a Instância que está sendo executada, clique **Actions**, escolha **Instance State** e em seguida, clique em **Terminate**.
-
-* Selecione **Elastic Block Store **no menu lateral esquerdo e clique em **Volumes**.
-
-* Selecione os volumes listados na tela, clique em **Actions**, e em seguida, clique em **Delete Volumes**.
-
+TEST_NAME=test_cl
+ ```
+ 9. Clique em `OK`. Clique em `Apply`. Clique em `OK` para voltar ao projeto Vivado.
+ 
+ **Executando a Simulação**
+   
+   1. Em Flow Navigator, selecione `Simulation->Run Simulation->Run Behavioral Simulation`.
+   2. Adicione os sinais necessários na simulação.
+   3. No console TCL, execute o comando `run -all`. Se Avisos críticos aparecerem, clique em `OK` e execute o comando novamente. 
 	
 
 	
 
 **Referências**
 
-* Amazon Web Services. Hardware Development Kit (HDK) e Software Development Kit (SDK) [internet]. [Acesso em: 26 dez. 2017]. Disponível em: https://github.com/aws/aws-fpga/blob/master/hdk/docs/IPI_GUI_Vivado_Setup.md
-
-* XILINX. **Create, configure and test an AWS F1 instance. **2017. Disponível em: <https://github.com/Xilinx/SDAccel_Examples/wiki/Create,-configure-and-test-an-AWS-F1-instance>. Acesso em: 16 mar. 2018.
+* Amazon Web Services. Hardware Development Kit (HDK) e Software Development Kit (SDK) [internet]. [Acesso em: 02 dez. 2017]. Disponível em: https://github.com/aws/aws-fpga/blob/master/hdk/docs/IPI_GUI_Examples.md#ipitut
 
