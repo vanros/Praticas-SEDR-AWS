@@ -12,6 +12,13 @@ O VLED é definido com base na gravação do valor 0xAAAA no registrador slave G
 
 As interfaces PCIS gravam dados ASCII no espaço de memória AXI BRAM e lêem esses endereços para imprimir “Hello World!” Na simulação ou na F1.
 
+
+**Objetivos de Aprendizagem**
+
+*  Configuração do IP AWS com a interface BAR1 e a interface PCIS.
+
+* Simulação do exemplo hello_world.
+
 **Criando a estrututra de diretório e o Projeto Vivado**
   
   1. Entre no diretório `hdk/cl/examples`.
