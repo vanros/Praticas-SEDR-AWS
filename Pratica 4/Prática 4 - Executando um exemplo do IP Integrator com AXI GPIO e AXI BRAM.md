@@ -34,7 +34,6 @@ As interfaces PCIS gravam dados ASCII no espaço de memória AXI BRAM e lêem es
   4. Crie um projeto digitando, no console TCL, o comando `create_project -name hello_world`.
   
   5. Digite o seguinte comando, no console TCL, que altera as configurações do projeto para a AWS e cria o diagrama de blocos com o IP da AWS adicionado.
-  
   `aws::make_ipi`
   
 **Configurando o Diagrama de Blocos**
