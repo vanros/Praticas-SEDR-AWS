@@ -19,6 +19,12 @@ As interfaces PCIS gravam dados ASCII no espaço de memória AXI BRAM e lêem es
 
 * Simulação do exemplo hello_world.
 
+**Configurando o Vivado e o HDK/SDK**
+1. Entre no diretório `aws-fpga-master`.
+2. Execute o comando `source /opt/Xilinx/SDx/2017.1.op/settings64.sh`.
+3. Execute o comando `source hdk_setup.sh`.
+4. Execute o comando `source sdk_setup.sh`. (Informe a senha `osboxes.org`).
+
 **Criando a estrututra de diretório e o Projeto Vivado**
 1. Entre no diretório `hdk/cl/examples`.
 2. Crie um diretório em examples, como `hello_world_vivado`.
