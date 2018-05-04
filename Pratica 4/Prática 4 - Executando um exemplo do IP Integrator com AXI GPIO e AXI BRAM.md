@@ -39,7 +39,7 @@ As interfaces PCIS gravam dados ASCII no espaço de memória AXI BRAM e lêem es
 **Configurando o Diagrama de Blocos**
 
   **Configurando o IP AWS**
-  1. Dê um clique duplo sobre o bloco IP AWS. Em Interfaces IP, selecione Use BAR1 Register Interface (M_AXI_BAR1), Use PCI Slave-access Interface (M_AXI_PCIS), e Use Auxiliary (non-AXI) Signal Ports. Isso habilita a interface AXI4-Lite Master (para AXI GPIO), a interface AXI4 Master (para AXI BRAM) e os inputs/outputs VLED/VDIP. Após isso, selecione `OK`. 
+  1. Dê um clique duplo sobre o bloco IP AWS. Em Interfaces IP, selecione ` Use BAR1 Register Interface (M_AXI_BAR1)`, `Use PCI Slave-access Interface (M_AXI_PCIS)`, e `Use Auxiliary (non-AXI) Signal Ports`. Isso habilita a interface AXI4-Lite Master (para AXI GPIO), a interface AXI4 Master (para AXI BRAM) e os inputs/outputs VLED/VDIP. Após isso, selecione `OK`. 
   
   ![image alt text](ip_aws.jpg)
  
