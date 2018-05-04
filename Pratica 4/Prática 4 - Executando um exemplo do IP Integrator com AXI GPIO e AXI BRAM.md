@@ -93,7 +93,7 @@ As interfaces PCIS gravam dados ASCII no espaço de memória AXI BRAM e lêem es
  2. Após a validação ser bem sucedida, selecione `OK`.
  
  **Adicionando simulation sources do exemplo de design (cl_hello_world)**
- 1. Na tab `Project Manager`, em Flow Navigator, selecione `Add Sources -> Add or create simulation sources -> Select Add Files`.
+ 1. Na tab `Project Manager`, em Flow Navigator, selecione `Add Sources -> Add or create simulation sources -> Add Files`.
  
  2. Adicione o arquivo `hdk/common/shell_stable/hlx/hlx_examples/build/IPI/hello_world/verif/test_cl.sv`.
  
