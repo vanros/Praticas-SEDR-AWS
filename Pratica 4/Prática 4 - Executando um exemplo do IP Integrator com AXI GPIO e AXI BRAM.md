@@ -27,7 +27,7 @@ As interfaces PCIS gravam dados ASCII no espaço de memória AXI BRAM e lêem es
 
 **Criando a estrututra de diretório e o Projeto Vivado**
 1. Entre no diretório `hdk/cl/examples`.
-2. Crie um diretório em examples, como `hello_world_vivado_<seuNome>`.
+2. Crie um diretório em examples, como `hello_world_vivado_<seuNome>`, e entre nesse diretório.
   
   3. Inicie o Vivado usando o comando `vivado`.
   
