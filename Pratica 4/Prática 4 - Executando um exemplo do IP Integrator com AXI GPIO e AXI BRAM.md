@@ -8,7 +8,7 @@ Elaborada por Jardel Silveira e Vanessa Rodrigues
 
 Esta prática aborda o procedimento para a configuração do IP AWS com a interface BAR1 (AXI4-Lite Master Interface) e a interface PCIS (AXI4 Master). Neste exemplo, o IP AXI GPIO é adicionado ao design para controlar o VLED e o IP AXI BRAM é adicionado ao design da interface PCIS (AXI4 Master).
 
-O VLED é definido com base na gravação do valor 0xAAAA no registrador slave do IP GPIO AXI (0x0) para conduzir o VLED. O valor é lido usando a task Verilog tb.get_virtual_led ou fpga-get-virtual-led na F1. 
+O VLED é definido com base na gravação do valor 0xAAAA no registrador slave GPIO AXI (0x0) para conduzir o VLED. O valor é lido usando a task Verilog tb.get_virtual_led ou fpga-get-virtual-led na F1. 
 
 As interfaces PCIS gravam dados ASCII no espaço de memória AXI BRAM e lêem esses endereços para imprimir “Hello World!” Na simulação ou na F1.
 
@@ -41,6 +41,8 @@ As interfaces PCIS gravam dados ASCII no espaço de memória AXI BRAM e lêem es
 
   **Configurando o IP AWS**
   1. Dê um clique duplo sobre o bloco IP AWS. Em Interfaces IP, selecione Use BAR1 Register Interface (M_AXI_BAR1), Use PCI Slave-access Interface (M_AXI_PCIS), e Use Auxiliary (non-AXI) Signal Ports. Isso habilita a interface AXI4-Lite Master (para AXI GPIO), a interface AXI4 Master (para AXI BRAM) e os inputs/outputs VLED/VDIP. Após isso, selecione `OK`. 
+  
+  ![image alt text](ip_aws.jpg)
  
  O IP AWS é configurado para um clock usando o Grupo-A com o padrão clock recipe, que configura um clock de 125 MHz.
  
@@ -69,7 +71,7 @@ As interfaces PCIS gravam dados ASCII no espaço de memória AXI BRAM e lêem es
  
  4. Selecione `axi_gpio_0/S_AXI`. verifique se `Master` está definido para `/f1_inst/M_AXI_BAR1` e as outras opções para `Auto`. O `axi_gpio_0/GPIO` será configurado manualmente após a execução da automação de conexão. Após isso, selecione `OK`
  
- 5. Expanda axi_gpio_0/GPIO selecionando o `+`. Conecte `gpio_io_o [15: 0]` no bloco `f1_inst` e faça uma conexão com `status_vled [15: 0]`. Após isso, clique em `Run Connection Automation`.
+ 5. Expanda axi_gpio_0/GPIO selecionando o `+`. Conecte `gpio_io_o [15: 0]` no bloco `f1_inst` e faça uma conexão com `status_vled [15: 0]`. 
   
   
   **Tab Adress Editor**
@@ -89,11 +91,11 @@ As interfaces PCIS gravam dados ASCII no espaço de memória AXI BRAM e lêem es
  
  2. Adicione o arquivo `hdk/common/shell_stable/hlx/hlx_examples/build/IPI/hello_world/verif/test_cl.sv`.
  
- 3. Desmarque a opção `Scan` e adicione `RTL includes files into project`.
+ 3. Desmarque a opção `Scan and add RTL includes files into project`.
  
  4. Desmarque a opção `Copy sources into project to link to the source files`.
  
- 5. Selecione `dd sources from subdirectories`.
+ 5. Selecione `Add sources from subdirectories`.
  
  6. Selecione `Include all design sources for simulation`. Após isso, clique em `Finish`.
  
