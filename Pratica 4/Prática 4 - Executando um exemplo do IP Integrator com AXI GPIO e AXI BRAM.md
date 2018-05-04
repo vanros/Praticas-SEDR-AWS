@@ -53,6 +53,7 @@ As interfaces PCIS gravam dados ASCII no espaço de memória AXI BRAM e lêem es
  
  3. Na seção GPIO, selecione `All Outputs` e defina GPIO Width para `16`. Após isso, selecione `OK`.
   
+  ![image alt text](ip_gpio.jpg)
 
 **Adicionando/Configurando o AXI BRAM**
 1. Clique com o botão direito na tela e selecione ``Add IP``. Na barra de pesquisa, digite AXI BRAM e dê um clique duplo em AXI BRAM Controller.
@@ -61,6 +62,7 @@ As interfaces PCIS gravam dados ASCII no espaço de memória AXI BRAM e lêem es
 
 3. Defina Data Width para `512` e clique em OK. Isso é para corresponder à largura de dados de 512 bits da interface principal do PCIS AXI4.
   
+   ![image alt text](ip_bram.jpg)
   
  **Conectando o Design**
  1. Selecione `Run Connection Automation `  no top do block diagram na seção verde destacada.
@@ -71,8 +73,13 @@ As interfaces PCIS gravam dados ASCII no espaço de memória AXI BRAM e lêem es
  
  4. Selecione `axi_gpio_0/S_AXI`. verifique se `Master` está definido para `/f1_inst/M_AXI_BAR1` e as outras opções para `Auto`. O `axi_gpio_0/GPIO` será configurado manualmente após a execução da automação de conexão. Após isso, selecione `OK`
  
- 5. Expanda axi_gpio_0/GPIO selecionando o `+`. Conecte `gpio_io_o [15: 0]` no bloco `f1_inst` e faça uma conexão com `status_vled [15: 0]`. 
-  
+ 5. Expanda axi_gpio_0/GPIO selecionando o `+`.
+ 
+    ![image alt text](gpio_conect.jpg)
+ 
+ 6. Conecte `gpio_io_o [15: 0]` no bloco `f1_inst` e faça uma conexão com `status_vled [15: 0]`. 
+   
+    ![image alt text](gpio_15_0.jpg)
   
   **Tab Adress Editor**
   1. Selecione a Tab `Adress Editor` no topo do block diagram.
@@ -101,7 +108,11 @@ As interfaces PCIS gravam dados ASCII no espaço de memória AXI BRAM e lêem es
  
  7. Clique com o botão direito em `SIMULATION` em `Project Manager` e selecione `Simulation Settings`.
  
- 8. Em `Verilog options`, selecione a caixa `...` e mude os seguintes nomes (Possivelmente já estará configurado).
+ 8. Em `Verilog options`, selecione a caixa `...`.
+    
+    ![image alt text](verilog_options.jpg)
+ 
+ 9. Mude os seguintes nomes (Possivelmente já estará configurado).
   ```bash
  CL_NAME=cl_top
 
