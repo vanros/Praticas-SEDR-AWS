@@ -126,7 +126,7 @@ TEST_NAME=test_cl
  
  2. Adicione os sinais necessários na simulação.
  
- 3. No console TCL, execute o comando `run -all`. Se Avisos críticos aparecerem, clique em `OK` e execute o comando novamente. 
+ 3. No console TCL, execute o comando `run -all`. Se `Criticals Warnings` aparecerem, clique em `OK` e execute o comando novamente. 
 	
 
 	
