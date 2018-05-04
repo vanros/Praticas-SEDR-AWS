@@ -68,15 +68,15 @@ As interfaces PCIS gravam dados ASCII no espaço de memória AXI BRAM e lêem es
  
  2. Selecione `axi_bram_ctrl_0/BRAM_PORTA ` e depois `BRAM_PORTB` e selecione `Auto`. 
  
- 3. Para ` axi_bram_ctrl_0/S_AXI`, verifique se `Master` está definido para `/f1_inst/M_AXI_PCIS` e as outras opções para `Auto`.
+ 3. Selecione ` axi_bram_ctrl_0/S_AXI` e verifique se `Master` está definido para `/f1_inst/M_AXI_PCIS` e as outras opções para `Auto`.
  
- 4. Selecione `axi_gpio_0/S_AXI`. verifique se `Master` está definido para `/f1_inst/M_AXI_BAR1` e as outras opções para `Auto`. O `axi_gpio_0/GPIO` será configurado manualmente após a execução da automação de conexão. Após isso, selecione `OK`
+ 4. Selecione `axi_gpio_0/S_AXI`. verifique se `Master` está definido para `/f1_inst/M_AXI_BAR1` e as outras opções para `Auto`. Selecione `axi_gpio_0/GPIO`, que será configurado manualmente após a execução da automação de conexão. Após isso, selecione `OK`
  
  5. Expanda axi_gpio_0/GPIO selecionando o `+`.
  
     ![image alt text](gpio_conect.jpg)
  
- 6. Conecte `gpio_io_o [15: 0]` no bloco `f1_inst` e faça uma conexão com `status_vled [15: 0]`. 
+ 6. Conecte `gpio_io_o [15: 0]` no bloco `f1_inst` e faça uma conexão com `status_vled [15: 0]`. Selecione `Run Connection Automation `
    
     ![image alt text](gpio_15_0.jpg)
   
