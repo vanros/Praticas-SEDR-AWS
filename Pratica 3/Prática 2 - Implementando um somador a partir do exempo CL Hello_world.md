@@ -8,7 +8,7 @@ Elaborada por Jardel Silveira e Vanessa Rodrigues
 
 No exemplo hello_world tem-se um software onde estão definidos os endereços dos registradores Hello world e Virtual LED e onde são utilizadas as funções de escrita (fpga_pci_poke) e leitura (fpga_pci_peek) desses registradores. Além disso, do lado do hardware tem-se o design, onde também estão definidos os endereços dos registradores, e onde são implementados processos  de leitura e escrita dos registradores de acordo com a lógica proposta pelo exemplo hello_world. Por exemplo, o software escreve um valor no registrador Hello world, por meio da função fpga_pci_poke, o processo implementado no design ler o dado no registrador, realiza o Swapped, escreve o novo valor e então o software ler o novo valor do registrador por meio da função fpga_pci_peek.
 
-Nesta prática vamos implementar uma soma de dois valores, a partir do exemplo hello_world. Serão instanciados dois registradores com os valores a serem somados e um registrador com o resultado da soma, além da lógica no lado do software e do hardware.
+Nesta prática vamos implementar uma soma de dois valores, a partir do exemplo hello_world. Serão instanciados dois registradores com os valores a serem somados e um registrador com o resultado da soma, além da implementação da lógica no lado do software e do hardware.
 
 **Objetivos de Aprendizagem**
 
