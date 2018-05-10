@@ -2,7 +2,7 @@ DETI/UFC - Cursos de Eng. de Computação e Eng. de Telecomunicações
 
 Elaborada por Jardel Silveira e Vanessa Rodrigues
 
-# **Executando um  exemplo do IP Integrator com AXI GPIO e AXI BRAM (hello_world)**
+# **Executando um  exemplo do IP Integrator com AXI GPIO e AXI BRAM (hello world)**
 
 **Descrição**
 
