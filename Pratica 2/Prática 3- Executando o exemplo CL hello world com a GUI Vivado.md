@@ -2,7 +2,7 @@ DETI/UFC - Cursos de Eng. de Computação e Eng. de Telecomunicações
 
 Elaborada por Jardel Silveira e Vanessa Rodrigues
 
-# **Executando o exemplo CL hello_world com a GUI Vivado**
+# **Executando o exemplo CL hello world com a GUI Vivado**
 
 **Descrição**
 
