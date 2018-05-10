@@ -2,7 +2,7 @@ DETI/UFC - Cursos de Eng. de Computação e Eng. de Telecomunicações
 
 Elaborada por Jardel Silveira e Vanessa Rodrigues 
 
-# **Implementando um somador a partir do exemplo Hello_world**
+# **Implementando um somador a partir do exemplo CL Hello world**
 
 **Descrição**
 
