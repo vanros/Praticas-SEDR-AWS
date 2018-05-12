@@ -20,14 +20,14 @@ Nesta prática vamos executar o exemplo CL hello_world, que foi usado na prátic
 
 **Parte 1: Configurar a máquina local e a instância para permitir o acesso a interface gráfica**
 
-1. Execute uma instância EC2 t2.2xlarge, seguindo o procedimento descrito na prática [Criação de uma Amazon FPGA Image (AFI) do exemplo CL hello_world](https://github.com/vanros/Praticas-SEDR-AWS/blob/master/Pratica%201/_Pr%C3%A1tica%201-%20Cria%C3%A7%C3%A3o%20de%20uma%20Amazon%20FPGA%20Image%20(AFI)%20do%20exemplo%20CL%20hello_world.md)
+1. Execute uma instância EC2 t2.2xlarge, seguindo o procedimento descrito na prática [Criação de uma Amazon FPGA Image (AFI) do exemplo CL hello_world](https://github.com/vanros/Praticas-SEDR-AWS/blob/master/Pratica%201/_Pr%C3%A1tica%201-%20Cria%C3%A7%C3%A3o%20de%20uma%20Amazon%20FPGA%20Image%20(AFI)%20do%20exemplo%20CL%20hello_world.md).
 
-2. Na máquina local, execute o seguinte comando para permitir que seja acessada por qualquer host
+2. Na máquina local, execute o seguinte comando para permitir que seja acessada por qualquer host.
 ```bash
 $ xhost +
 ```
 
-3. Na instância t2.2xlarge, execute o seguinte comando para verificar se o SSH está configurado para aceitar que conexões  através do modo gráfico
+3. Na instância t2.2xlarge, execute o seguinte comando para verificar se o SSH está configurado para aceitar que conexões  através do modo gráfico.
 ```bash
 $ cat /etc/ssh/sshd_config | grep X11Forwarding
 ```
@@ -36,21 +36,21 @@ O resultado deste comando deverá ser ```"X11Forwarding yes"```.
 
 4. Ainda na instância t2.2xlarge, execute o seguinte comando para instalar o xauth
 ```bash
-$ sudo yum install xauth
+$ sudo yum install xauth.
 ```
 
-5. Feche a sessão SSH (```exit```)e em seguida reconecte-se adicionando no comando de conexão o parâmetro -X, como no exemplo abaixo
+5. Feche a sessão SSH (```exit```)e em seguida reconecte-se adicionando no comando de conexão o parâmetro -X, como no exemplo abaixo:
 ```bash
 $ ssh -i nomeDaKeyPair.pem -X centos@54.183.22.255
 ```
 
 
-6. Execute o comando
+6. Execute o comando.
 ```bash
 $ export DISPLAY=localhost:10.0
 ```
 
-7. Instale o editor de texto gedit com o seguinte comando
+7. Instale o editor de texto gedit com o seguinte comando:
 ```bash
 $ sudo yum install gedit
 ```
@@ -61,18 +61,16 @@ $ sudo yum install gedit
 
 **Parte 2: Configurando o  IP Integrator**
 
-1. Configure o HDK 
+1. Configure o HDK
 ```bash 
 $ git clone https://github.com/aws/aws-fpga.git $AWS_FPGA_REPO_DIR
 $ cd $AWS_FPGA_REPO_DIR
 $ source hdk_setup.sh
 ```
-
 2. Entre no diretório ```~/.Xilinx/Vivado``` e verifique se o arquivo ```init.tcl```  ou o arquivo ```Vivado_init.tcl``` existe dentro desse diretório. Caso nenhum destes dois arquivos existam, crie o arquivo com o seguinte comando
 ```bash 
 $ touch Vivado_init.tcl
 ```
-	
 
 3. Obtenha o path absoluto de $HDK_SHELL_DIR com o seguinte comando
 ```bash 
@@ -89,9 +87,25 @@ Obs:  Você poderá editar o arquivo usando o gedit previamente instalado, execu
 
 5. Execute o vivado usando o comando ```vivado```
 
-**Parte 3: Simulação do exemplo hello_world usando a interface gráfica do Vivado**
+6. Uma vez que o vivado tenha sido executado com a interface gráfica, feche-o e retorne ao terminal. 
 
-1.   Uma vez que o vivado tenha sido executado com a interface gráfica, feche-o e retorne ao terminal
+7. Feche a sessão SSH e termine a instância.
+
+**Parte 3: Simulação do exemplo hello_world usando o ambiente de desenvolvimento local**
+
+**Configurando o Vivado e o HDK/SDK**
+
+1. Faça login na máquina virtual que está sendo executada no computador do laboratório, utilizando as seguintes informações:
+```bash
+Usuário: osboxes.org
+Senha: osboxes.org
+```
+2. Entre no diretório `aws-fpga-master`.
+3. Execute o comando `source /opt/Xilinx/SDx/2017.1.op/settings64.sh`.
+4. Execute o comando `source hdk_setup.sh`.
+5. Execute o comando `source sdk_setup.sh`. (Informe a senha `osboxes.org`).
+
+**Configurando as variáveis de ambiente**
 
 2. Adicione as seguintes variáveis de ambiente para clock recipes e IDs para o exemplo hello_world
 ```bash
@@ -111,7 +125,7 @@ $ export subsystem_vendor_id=0xFEDD
 ```
 **Criando Exemplo de Design**
 
-3. Mude para o diretório ```/home/centos/src/project_data/aws-fpga/hdk/cl/examples/hello_world_hlx```
+3. Mude para o diretório ```/hdk/cl/examples/hello_world_hlx```
 
 4. Execute o vivado usando o comando ```vivado```. Uma vez que a GUI tiver sido carregada, clique no console TCL
 
